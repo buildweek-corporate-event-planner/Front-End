@@ -20,7 +20,7 @@ const Login = () => {
                               <input
                               name="email"
                               type="email"
-                              value="email"
+                              // value="email"
                               placeholder="user@email.com"
                               />
                          </label>
@@ -29,7 +29,7 @@ const Login = () => {
                          <input
                               name="password"
                               type="password"
-                              value="password"
+                              // value="password"
                               placeholder="password"
                               />
                          </label>
