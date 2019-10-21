@@ -1,14 +1,10 @@
 import React, {useState} from 'react'
 import { NavLink } from 'react-router-dom'
-import { register } from '../actions/'
+import { register } from '../../actions/'
 import {connect} from 'react-redux'
-const Register = () => {
 
-    const handleSubmit = e => {
-          e.preventDefault();
-          console.log("Submission")
 
-     }
+const Register = (props) => {
 
      const [registerUser, setRegisterUser] = useState({
           email:'',
@@ -22,6 +18,11 @@ const Register = () => {
                ...registerUser,
                [event.target.name]: event.target.value
           })
+     }
+
+    const handleSubmit = e => {
+          e.preventDefault();
+          console.log("Submission")
      }
 
      return (
@@ -38,6 +39,7 @@ const Register = () => {
                          type="email"
                          value={registerUser.email}
                          placeholder="user@email.com"
+                         onChange={handleChanges}
                          />
                          </label>
 
@@ -91,5 +93,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {register} )(Register) 
-
-export default Register

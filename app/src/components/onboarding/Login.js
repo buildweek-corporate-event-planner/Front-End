@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { NavLink } from 'react-router-dom'
-import { login } from '../actions/'
+import { login } from '../../actions/'
 
 import { connect } from 'react-redux'
-const Login = () => {
+
+const Login = (props) => {
 
      const [loginInfo, setLoginInfo] = useState({
           email:'',
