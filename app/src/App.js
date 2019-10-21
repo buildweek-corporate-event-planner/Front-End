@@ -9,7 +9,6 @@ import Register from './components/Register'
 import PrivateRoute from './components/PrivateRoute'
 
 
-
 function App() {
   return (
     <div className="App">
