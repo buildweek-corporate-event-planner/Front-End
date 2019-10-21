@@ -9,13 +9,13 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
 export const LOGIN_FAILURE = "LOGIN_FAILURE"
 
 export const login = (credentials, history) => (dispatch) => {
-     dispatch({type: LOGIN_REQUEST})
+     dispatch({ type: REQUEST_START })
      axiosWithAuth()
      .post('/api/auth/login', credentials)
      .then(response => {
           console.log(response)
-          // localStorage.setItem("token", response.data)
-          // history.push("/")
+          localStorage.setItem("token", response.data)
+          history.push("/")
      })
      .catch(error => console.log(error.response))
 }
@@ -28,5 +28,6 @@ export const REGISTER_SUCCESS = 'REGISTER_SUCCESS'
 export const REGISTER_FAILURE = 'REGISTER_FAILURE'
 
 export const register = () => (dispatch) => {
-     dispatch({})
+     dispatch({type: REGISTER_START})
+     axios.post("", )
 }
