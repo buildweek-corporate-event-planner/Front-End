@@ -6,7 +6,7 @@ const Navigation = () => {
      return(
           <div className="landingBox">
                <div className="landingText">
-               <h3>Welcome To The Corporate Event Planning App</h3>
+               <h3>Welcome To Ivory</h3>
                <h4><span id="landingSpan">Ivory</span> is the best way to plan and deploy your corporate events!</h4>
                </div>
                <div className="landingButtons">
