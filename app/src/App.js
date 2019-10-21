@@ -1,10 +1,19 @@
 import React from 'react';
 import './App.css';
 
+import {Route, Switch} from 'react-router-dom'
+
+
+
+
 function App() {
   return (
     <div className="App">
-      Hello this is App.js
+      <Switch>
+        <Route path="/register" component={Register} />
+        <Route path="/login" component={Login} />
+        <PrivateRoute path="/" component={Navigation} />
+      </Switch>
     </div>
   );
 }
