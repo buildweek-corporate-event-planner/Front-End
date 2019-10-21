@@ -60,7 +60,7 @@ const Register = (props) => {
                          name="role"
                          type="text"
                          value={registerUser.role}
-                         placeholder="user@email.com"
+                         placeholder="PL, TL, SL, etc."
                          onChange={handleChanges}
                          />
                          </label>

@@ -31,6 +31,8 @@ export const reducer = (state = initialState, action) => {
           case LOGIN_SUCCESS:
                return{
                     ...state,
+                    isRegistering: false,
+                    isFetching:false,
                     isLoggedIn:true
                }
           case REGISTER_START:

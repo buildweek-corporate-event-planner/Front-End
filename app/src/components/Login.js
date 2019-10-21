@@ -1,19 +1,29 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { NavLink } from 'react-router-dom'
 import { login } from '../actions/'
 
 import { connect } from 'react-redux'
 
 
-const Login = () => {
+const Login = (props) => {
+
+     const [loginInfo, setLoginInfo] = useState({
+          email:'',
+          password:''
+     })
+     
+     const handleChanges = event => {
+          setLoginInfo({
+               ...loginInfo, 
+               [event.target.name]: event.target.value
+          })
+     }
 
      const handleSubmit = e => {
           e.preventDefault();
           console.log("Submission")
 
      }
-
-
 
      return (
           <div>
@@ -27,8 +37,9 @@ const Login = () => {
                               <input
                               name="email"
                               type="email"
-                              value=""
+                              value={loginInfo.email}
                               placeholder="user@email.com"
+                              onChange={handleChanges}
                               />
                          </label>
 
@@ -36,12 +47,14 @@ const Login = () => {
                          <input
                               name="password"
                               type="password"
-                              value=""
+                              value={loginInfo.password}
                               placeholder="password"
+                              onChange={handleChanges}
                               />
                          </label>
 
-                         <button type="submit">Login</button>
+                         <button type="submit" onClick={() => props.login(loginInfo)}>Login</button>
+
                          <NavLink to='/'>Return to home.</NavLink>
                     </form>
                </div>
