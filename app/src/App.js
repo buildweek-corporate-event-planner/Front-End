@@ -3,6 +3,10 @@ import './App.css';
 
 import {Route, Switch} from 'react-router-dom'
 
+import Navigation from './components/Navigation'
+import Login from './components/Login'
+import Register from './components/Register'
+import PrivateRoute from './components/PrivateRoute'
 
 
 
