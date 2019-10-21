@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { NavLink } from 'react-router-dom'
-import { register } from '../actions/'
+import { register } from '../../actions/'
 import {connect} from 'react-redux'
 
 
@@ -25,8 +25,6 @@ const Register = (props) => {
           console.log("Submission")
      }
 
-
-     
      return (
           <div>
                <div>
@@ -94,4 +92,4 @@ const mapStateToProps = state => {
      }
 }
 
-export default connect(mapStateToProps, {register} )(Register)
+export default connect(mapStateToProps, {register} )(Register) 
