@@ -33,11 +33,11 @@ export const register = (registerUser) => (dispatch) => {
      .then(response => {
           console.log(response)
           // TODO: add payload to dispatch
-          // dispatch({type:REGISTER_SUCCESS})
+          dispatch({type:REGISTER_SUCCESS})
      })
      .catch(error => {
           console.log(error)
           // TODO: add payload to dispatch
-          // dispatch({type:REGISTER_FAILURE})
+          dispatch({type:REGISTER_FAILURE})
      })
 }
