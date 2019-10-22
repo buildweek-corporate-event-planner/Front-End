@@ -62,7 +62,7 @@ export const reducer = (state = initialState, action) => {
                return{
                     ...state,
                     isRegistering: false,
-                    isSubmititing: true
+                    isSubmitting: true
                }
           case REGISTER_FAILURE:
                return{

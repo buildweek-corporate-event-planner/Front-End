@@ -28,11 +28,8 @@ const SingleEvent = (props) => {
         props.fetchSingleEvent(props.match.url)
     },[])
 
-    console.log(props.match.url)
+    let id = props.match.params.id
 
-
-
-    console.log(props)
     return (
         <>
             <div>
@@ -41,6 +38,8 @@ const SingleEvent = (props) => {
                 <p>{props.singleEventData.event_date}</p>
                 <p>{props.singleEventData.event_time}</p>
                 <p>{props.singleEventData.budget}</p>
+                <button onClick={() => props.history.push(`/edit-event/${id}`)}>Edit</button>
+                <button>Delete</button>
             </div>
 
 
@@ -59,8 +58,7 @@ const SingleEvent = (props) => {
                 <button onClick={() => props.addTodo(todoItem)}>Add task</button>
             </form>
 
-            <button>Edit</button>
-            <button>Delete</button>
+           
         </>
     )
 }

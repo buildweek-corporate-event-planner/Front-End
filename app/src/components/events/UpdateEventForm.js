@@ -1,33 +1,29 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
+import { fetchSingleEvent } from '../../actions/'
 
 function UpdateEventForm(props){
 
-console.log(props)
 
-     
+
+     console.log(props)
 
 
      return(
           <div>
-               {/* < div >
-                    <div>
-                         <h3>{props.event_name}</h3>
-                         <h4>{props.description}</h4>
-                    </div>
-                    <div>
-                         <h5>{props.event_date}</h5>
-                         <h5>{props.event_time}</h5>
-                         <h5>{props.budget}</h5>
-                    </div>
-               </div > */}
-
-
-
-
-
 
           </div>
      )
 }
 
-export default UpdateEventForm
+
+
+
+
+const mapStateToProps = state => {
+     return {
+          singleEventData: state.singleEventData
+     }
+}
+
+export default connect(mapStateToProps, { fetchSingleEvent})(UpdateEventForm)

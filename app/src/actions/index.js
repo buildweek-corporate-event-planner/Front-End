@@ -50,7 +50,7 @@ export const NEW_EVENT_FAILURE = "NEW_EVENT_FAILURE"
 export const addEvent = (makeEvent, history) => (dispatch) => {
      dispatch({type: NEW_EVENT_START })
      axiosWithAuth()
-          .post('https://bw-corporate-event-planner.herokuapp.com/api/events', makeEvent)
+     .post('https://bw-corporate-event-planner.herokuapp.com/api/events', makeEvent)
      .then(response => {
           console.log(response)
           dispatch({type: NEW_EVENT_SUCCESS})
