@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import {addEvent} from '../../actions/'
-import Navbar from './navbar'
+import Navbar from '../dashboard/navbar'
 
 
 const AddEventForm = (props) => {

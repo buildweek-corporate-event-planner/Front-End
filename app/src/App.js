@@ -13,7 +13,7 @@ import Register from './components/onboarding/Register'
 
 // dashboard imports
 import Dashboard from './components/dashboard/dashboard'
-import AddEventForm from './components/dashboard/AddEventForm'
+import AddEventForm from './components/events/AddEventForm'
 
 function App() {
   return (
