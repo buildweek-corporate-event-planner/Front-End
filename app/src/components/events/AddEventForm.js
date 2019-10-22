@@ -20,7 +20,6 @@ const AddEventForm = (props) => {
         	
     const handleSubmit = e => {
         e.preventDefault();
-
     }
 
     const handleChanges = e => {

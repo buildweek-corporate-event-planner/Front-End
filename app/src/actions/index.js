@@ -63,8 +63,24 @@ export const addEvent = (makeEvent, history) => (dispatch) => {
      })
 }
 
+// * TODO LIST ACTION CREATOR
+export const TODO_START = "TODO_START"
+export const TODO_SUCCESS = "TODO_SUCCESSS"
+export const TODO_FAILURE = "TODO_FAILURE"
 
-
+export const addTodo = (todoItem) => (dispatch) => {
+     dispatch({type: TODO_START})
+     axiosWithAuth()
+     .post('', todoItem)
+     .then(response => {
+          console.log(response)
+          dispatch({ type: TODO_SUCCESS })
+     })
+     .catch(error => {
+          console.log(error)
+          dispatch({ type: TODO_FAILURE })
+     })
+}
 
 
 
