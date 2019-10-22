@@ -82,6 +82,19 @@ export const addTodo = (todoItem) => (dispatch) => {
      })
 }
 
+// * GET EVENT BY EVENT ID ACTION CREATOR
+     // if the data comes back as eventName Halloween Party - $250 budget = seed data is working 
+
+
+
+// have action and reducers for all of the get/posts/puts/deletes - ~30 endpoints
+
+
+
+
+
+// TODO - render on dashboard => render on card => render on individual card => render on updateForm 
+// TODO - updateForm for todolist, shopping, events 
 
 
 // simple axios post to create new events

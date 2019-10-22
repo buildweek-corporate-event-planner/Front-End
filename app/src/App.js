@@ -35,7 +35,10 @@ function App() {
         
         {/* Event routes */}
         <PrivateRoute exact path='/events-list' component={cardList} />
-        <PrivateRoute exact path='/events/:id' component={card}/>
+
+
+        
+        <PrivateRoute exact path='/events/:id' component={card}/> 
         <PrivateRoute exact path='/edit-event/:id' component={UpdateEventForm} />
       </Switch>
     </div>

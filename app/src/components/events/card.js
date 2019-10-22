@@ -83,6 +83,9 @@ TODO:
 2. create edit + delete buttons
 3. create updateCard file where we can update events 
 
+
+TODO: make dummy data for cardList - map out for individual item - find that item and compare to props - render that item - 
+TODO: make sure App.js is passing down all the events to UpdateEventForm so when you're looking for the ID in UpdateForms, you can find it to fill the boxes 
 */
 
 
