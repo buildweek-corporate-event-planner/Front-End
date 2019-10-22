@@ -70,8 +70,9 @@ export const TODO_FAILURE = "TODO_FAILURE"
 
 export const addTodo = (todoItem) => (dispatch) => {
      dispatch({type: TODO_START})
+     console.log(todoItem)
      axiosWithAuth()
-     .post('', todoItem)
+          .post('/api/todo/listItem', todoItem)
      .then(response => {
           console.log(response)
           dispatch({ type: TODO_SUCCESS })

@@ -1,26 +1,9 @@
-import React, {useState} from 'react'
-import { connect } from 'react-redux'
+import React from 'react'
 
-import {addTodo} from '../../actions/'
 import Navbar from '../dashboard/navbar'
 
 
 function Card(props){
-
-     const [todoItem, setTodoItem] = useState([])
-
-     const handleChanges = event => {
-          setTodoItem([
-               ...todoItem, 
-               event.target.value
-          ])
-     }
-
-     const submitTodo = event => {
-          event.preventDefault()
-     }
-
-     console.log(props)
 
      return(
           <div>
@@ -41,40 +24,22 @@ function Card(props){
                     {/* link to single event page */}
                     {/* <NavLink> </NavLink> */}
                </div>
-
-
-
-
-
-               <form onSubmit={submitTodo}>
-                    <input
-                         text="text"
-                         name="todoItem"
-                         value={todoItem}
-                         onChange={handleChanges}
-                         placeholder= "blah blah"
-                    />
-                    <button onClick={() => props.addTodo(todoItem)}>Add task</button>
-               </form>
-
-               <button>Edit</button>
-               <button>Delete</button>
           </div>
      )
 }
 
-const mapStateToProps = state => {
-     return {
-          event_name: state.event_name,
-          description: state.description,
-          budget: state.budget,
-          event_date: state.event_date,
-          event_time: state.event_time,
-     }
-}
+// const mapStateToProps = state => {
+//      return {
+//           event_name: state.event_name,
+//           description: state.description,
+//           budget: state.budget,
+//           event_date: state.event_date,
+//           event_time: state.event_time,
+//      }
+// }
 
 
-export default connect(mapStateToProps,null)(Card)
+export default Card
 
 
 /*
