@@ -7,7 +7,10 @@ import {
      REGISTER_FAILURE,
      NEW_EVENT_START,
      NEW_EVENT_SUCCESS,
-     NEW_EVENT_FAILURE
+     NEW_EVENT_FAILURE,
+     ADD_ITEM,
+     TOGGLE_COMPLETED,
+     CLEAR
 } from '../actions/'
 
 
@@ -20,7 +23,6 @@ const initialState = {
      isCreatingEvent:false, 
      hasCreatedEvent: false
 }
-
 export const reducer = (state = initialState, action) => {
      switch(action.type){
           case REQUEST_START:

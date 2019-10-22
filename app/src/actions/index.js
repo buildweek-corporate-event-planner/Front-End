@@ -62,10 +62,5 @@ export const addEvent = (makeEvent, history) => (dispatch) => {
      })
 }
 
-
-
-
-
-
 // simple axios post to create new events
 // to show the other events requires an axios call a component 
