@@ -50,7 +50,8 @@ export const NEW_EVENT_FAILURE = "NEW_EVENT_FAILURE"
 
 export const addEvent = (makeEvent, history) => (dispatch) => {
      dispatch({type: NEW_EVENT_START })
-     axios.post("https://bw-corporate-event-planner.herokuapp.com/api/events/", makeEvent)
+     axiosWithAuth()
+     .post('/api/events', makeEvent)
      .then(response => {
           console.log(response)
           dispatch({type: NEW_EVENT_SUCCESS})
@@ -61,6 +62,41 @@ export const addEvent = (makeEvent, history) => (dispatch) => {
           dispatch({type: NEW_EVENT_FAILURE})
      })
 }
+
+// * TODO LIST ACTION CREATOR
+export const TODO_START = "TODO_START"
+export const TODO_SUCCESS = "TODO_SUCCESSS"
+export const TODO_FAILURE = "TODO_FAILURE"
+
+export const addTodo = (todoItem) => (dispatch) => {
+     dispatch({type: TODO_START})
+     console.log(todoItem)
+     axiosWithAuth()
+          .post('/api/todo/listItem', todoItem)
+     .then(response => {
+          console.log(response)
+          dispatch({ type: TODO_SUCCESS })
+     })
+     .catch(error => {
+          console.log(error)
+          dispatch({ type: TODO_FAILURE })
+     })
+}
+
+// * GET EVENT BY EVENT ID ACTION CREATOR
+     // if the data comes back as eventName Halloween Party - $250 budget = seed data is working 
+
+
+
+// have action and reducers for all of the get/posts/puts/deletes - ~30 endpoints
+
+
+
+
+
+// TODO - render on dashboard => render on card => render on individual card => render on updateForm 
+// TODO - updateForm for todolist, shopping, events 
+
 
 // simple axios post to create new events
 // to show the other events requires an axios call a component 
