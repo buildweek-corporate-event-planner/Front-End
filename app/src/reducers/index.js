@@ -10,7 +10,10 @@ import {
      NEW_EVENT_FAILURE,
      TODO_START,
      TODO_SUCCESS,
-     TODO_FAILURE
+     TODO_FAILURE,
+     FETCH_START,
+     FETCH_SUCCESS,
+     FETCH_FAILURE
 } from '../actions/'
 
 
@@ -23,7 +26,8 @@ const initialState = {
      isCreatingEvent:false, 
      hasCreatedEvent: false,
      isCreatingTodo:false,
-     hasCreatedTodo:false
+     hasCreatedTodo:false,
+     eventList:[]
 }
 export const reducer = (state = initialState, action) => {
      switch(action.type){
@@ -97,6 +101,19 @@ export const reducer = (state = initialState, action) => {
                     ...state,
                     isCreatingTodo: false,
                     hasCreatedTodo: false
+               }
+          case FETCH_START:
+               return{
+                    ...state
+               }
+          case FETCH_SUCCESS:
+               return{
+                    ...state,
+                    eventList: action.payload
+               }
+          case FETCH_FAILURE:
+               return{
+                    ...state
                }
      default:
           return state;

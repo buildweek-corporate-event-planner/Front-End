@@ -1,5 +1,4 @@
 import {axiosWithAuth} from '../utils/axiosWithAuth'
-
 import axios from 'axios'
 
 
@@ -12,7 +11,7 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
 export const login = (credentials, history) => (dispatch) => {
      dispatch({ type: REQUEST_START })
      axiosWithAuth()
-     .post('/api/auth/login', credentials)
+     .post('https://bw-corporate-event-planner.herokuapp.com/api/auth/login', credentials)
      .then(response => {
           console.log(response)
           localStorage.setItem("token", response.data.token)
@@ -51,7 +50,7 @@ export const NEW_EVENT_FAILURE = "NEW_EVENT_FAILURE"
 export const addEvent = (makeEvent, history) => (dispatch) => {
      dispatch({type: NEW_EVENT_START })
      axiosWithAuth()
-     .post('/api/events', makeEvent)
+          .post('https://bw-corporate-event-planner.herokuapp.com/api/events', makeEvent)
      .then(response => {
           console.log(response)
           dispatch({type: NEW_EVENT_SUCCESS})
@@ -72,7 +71,7 @@ export const addTodo = (todoItem) => (dispatch) => {
      dispatch({type: TODO_START})
      console.log(todoItem)
      axiosWithAuth()
-          .post('/api/todo/listItem', todoItem)
+          .post('https://bw-corporate-event-planner.herokuapp.com/api/todo/listItem', todoItem)
      .then(response => {
           console.log(response)
           dispatch({ type: TODO_SUCCESS })
@@ -84,8 +83,21 @@ export const addTodo = (todoItem) => (dispatch) => {
 }
 
 // * GET EVENT BY EVENT ID ACTION CREATOR
-     // if the data comes back as eventName Halloween Party - $250 budget = seed data is working 
+// if the data comes back as eventName Halloween Party - $250 budget = seed data is working 
 
+export const FETCH_START = "FETCH_START"
+export const FETCH_SUCCESS = "FETCH_SUCCESS"
+export const FETCH_FAILURE = "FETCH_FAILURE"
+
+export const fetchData = () => (dispatch) => {
+     dispatch({type: FETCH_START})
+     axiosWithAuth()
+          .get('https://bw-corporate-event-planner.herokuapp.com/api/events/user/1')
+     .then(response => {
+          console.log(response)
+          dispatch({type: FETCH_SUCCESS, payload: response.data})
+     })
+}
 
 
 // have action and reducers for all of the get/posts/puts/deletes - ~30 endpoints
