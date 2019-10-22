@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import { login } from '../../actions/'
 
 import { connect } from 'react-redux'
@@ -17,10 +17,12 @@ const Login = (props) => {
                [event.target.name]: event.target.value
           })
      }
+
+    
      const handleSubmit = e => {
           e.preventDefault();
           console.log("Submission")
-
+          props.history.push('/dashboard')
      }
 
      return (
@@ -51,7 +53,7 @@ const Login = (props) => {
                               />
                          </label>
 
-                         <button type="submit" onClick={() => props.login(loginInfo)}>Login</button>
+                         <button type="submit" onClick={() => props.login(loginInfo, props.history)}>Login</button>
                          <NavLink to='/'>Return to home.</NavLink>
                     </form>
                </div>
@@ -67,4 +69,4 @@ const mapStateToProps = state => {
      }
 }
 
-export default connect(mapStateToProps, {login})(Login) 
+export default connect(mapStateToProps, {login})(withRouter(Login)) 

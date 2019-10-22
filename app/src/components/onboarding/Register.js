@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import { register } from '../../actions/'
 import {connect} from 'react-redux'
 
@@ -74,7 +74,7 @@ const Register = (props) => {
                          />
                          </label>
                          
-                         <button type="submit" onClick={() => props.register(registerUser)}>Signup</button>
+                         <button type="submit" onClick={() => props.register(registerUser, props.history)}>Signup</button>
                          <NavLink to='/'>Return to home.</NavLink>
                     </form>
                </div>
@@ -92,4 +92,4 @@ const mapStateToProps = state => {
      }
 }
 
-export default connect(mapStateToProps, {register} )(Register) 
+export default connect(mapStateToProps, {register} )(withRouter(Register)) 
