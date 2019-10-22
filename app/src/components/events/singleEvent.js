@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 
-import { addTodo } from '../../actions/'
+import { fetchSingleEvent, addTodo } from '../../actions/'
 
 const SingleEvent = (props) => {
     const [todoItem, setTodoItem] = useState({
@@ -19,6 +19,18 @@ const SingleEvent = (props) => {
     const submitTodo = event => {
         event.preventDefault()
     }
+
+
+
+
+    // TODO: GETTING THE API data
+    useEffect(() => {
+        props.fetchSingleEvent(props.match.url)
+    },[])
+
+    console.log(props.match.url)
+
+
 
     console.log(props)
     return (
@@ -42,12 +54,8 @@ const SingleEvent = (props) => {
 
 const mapStateToProps = state => {
     return {
-        event_name: state.event_name,
-        description: state.description,
-        budget: state.budget,
-        event_date: state.event_date,
-        event_time: state.event_time
+
     }
 }
 
-export default connect(mapStateToProps, {addTodo})(SingleEvent)
+export default connect(mapStateToProps, {fetchSingleEvent, addTodo})(SingleEvent)

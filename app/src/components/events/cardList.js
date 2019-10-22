@@ -1,24 +1,25 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import { connect } from 'react-redux'
 import {fetchData} from '../../actions/'
+import { NavLink } from 'react-router-dom';
 import Card from './card'
 
 function CardList(props){
-
-     const [eventList, setEventList] = useState([])
-
      useEffect(() => {
           props.fetchData()
-     }, [])
-
-     console.log(props.eventList)
-
+     },[])
 
      return(
           <div>Hello I am Card List
                {
                     props.eventList.map(item => {
-                         return(<Card eventList={item} key={item.id}/>)
+                         return(
+                         <div key={item.id}> 
+                              <NavLink to={`/events/${item.id}`} >
+                                  <Card eventList={item} key={item.id}/>
+                              </NavLink>
+                         </div>
+                         )
                     })
                }
           </div>

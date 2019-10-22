@@ -101,12 +101,12 @@ const AddEventForm = (props) => {
 
 const mapStateToProps = state => {
     return{
-        event_name: state.event_name,
-        description: state.description,
-        budget: state.budget,
-        event_date: state.event_date,
-        event_time: state.event_time,
-        assigned_to_user: state.assigned_to_user
+        // event_name: state.event_name,
+        // description: state.description,
+        // budget: state.budget,
+        // event_date: state.event_date,
+        // event_time: state.event_time,
+        // assigned_to_user: state.assigned_to_user
     }
 }
 

@@ -13,7 +13,10 @@ import {
      TODO_FAILURE,
      FETCH_START,
      FETCH_SUCCESS,
-     FETCH_FAILURE
+     FETCH_FAILURE, 
+     SINGLE_EVENT_START,
+     SINGLE_EVENT_SUCCESS,
+     SINGLE_EVENT_FAILURE
 } from '../actions/'
 
 
@@ -27,7 +30,8 @@ const initialState = {
      hasCreatedEvent: false,
      isCreatingTodo:false,
      hasCreatedTodo:false,
-     eventList:[]
+     eventList:[],
+     singleEventData:[]
 }
 export const reducer = (state = initialState, action) => {
      switch(action.type){
@@ -112,6 +116,19 @@ export const reducer = (state = initialState, action) => {
                     eventList: action.payload
                }
           case FETCH_FAILURE:
+               return{
+                    ...state
+               }
+          case SINGLE_EVENT_START:
+               return{
+                    ...state
+               }
+          case SINGLE_EVENT_SUCCESS:
+               return{
+                    ...state,
+                    singleEventData:action.payload
+               }
+          case SINGLE_EVENT_FAILURE:
                return{
                     ...state
                }

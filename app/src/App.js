@@ -21,7 +21,7 @@ import SingleEvent from './components/events/singleEvent'
 import UpdateEventForm from './components/events/UpdateEventForm'
 
 
-function App() {
+function App(props) {
 
 
 
@@ -39,11 +39,11 @@ function App() {
         <PrivateRoute path="/add" component={AddEventForm} />
         
         {/* Event routes */}
-        <PrivateRoute exact path='/events-list' component={cardList} />
+        <PrivateRoute exact path='/events/user/:id' component={cardList} />
 
 
 
-        <PrivateRoute exact path='/events/:id' component={SingleEvent}/> 
+        <PrivateRoute exact path='/events/:id' component={SingleEvent} /> 
         <PrivateRoute exact path='/edit-event/:id' component={UpdateEventForm} />
       </Switch>
     </div>

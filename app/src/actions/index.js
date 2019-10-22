@@ -84,7 +84,6 @@ export const addTodo = (todoItem) => (dispatch) => {
 
 // * GET EVENT BY EVENT ID ACTION CREATOR
 // if the data comes back as eventName Halloween Party - $250 budget = seed data is working 
-
 export const FETCH_START = "FETCH_START"
 export const FETCH_SUCCESS = "FETCH_SUCCESS"
 export const FETCH_FAILURE = "FETCH_FAILURE"
@@ -92,23 +91,31 @@ export const FETCH_FAILURE = "FETCH_FAILURE"
 export const fetchData = () => (dispatch) => {
      dispatch({type: FETCH_START})
      axiosWithAuth()
-          .get('https://bw-corporate-event-planner.herokuapp.com/api/events/user/1')
+     .get('https://bw-corporate-event-planner.herokuapp.com/api/events/user/1')
      .then(response => {
           console.log(response)
           dispatch({type: FETCH_SUCCESS, payload: response.data})
      })
+     .catch(error => {
+          console.log(error)
+          dispatch({ type: FETCH_FAILURE, payload: error})
+     })
 }
 
 
-// have action and reducers for all of the get/posts/puts/deletes - ~30 endpoints
 
 
+// * SINGLE EVENT ACTION CREATOR
+export const SINGLE_EVENT_START = "SINGLE_EVENT_START"
+export const SINGLE_EVENT_SUCCESS = "SINGLE_EVENT_SUCCESS"
+export const SINGLE_EVENT_FAILURE = "SINGLE_EVENT_FAILURE"
 
-
-
-// TODO - render on dashboard => render on card => render on individual card => render on updateForm 
-// TODO - updateForm for todolist, shopping, events 
-
-
-// simple axios post to create new events
-// to show the other events requires an axios call a component 
+export const fetchSingleEvent = (url) => (dispatch) => {
+     dispatch({type: SINGLE_EVENT_START})
+     // TODO: GRAB SINGLE EVENT ~ /api/events/event-details/:id/:eventId
+     axiosWithAuth()
+     .get(`https://bw-corporate-event-planner.herokuapp.com/api${url}`)
+     .then(response => {
+          console.log(response)
+     })
+}
