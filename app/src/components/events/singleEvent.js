@@ -35,13 +35,26 @@ const SingleEvent = (props) => {
     console.log(props)
     return (
         <>
+            <div>
+                <h1>{props.singleEventData.event_name}</h1>
+                <h3>{props.singleEventData.description}</h3>
+                <p>{props.singleEventData.event_date}</p>
+                <p>{props.singleEventData.event_time}</p>
+                <p>{props.singleEventData.budget}</p>
+            </div>
+
+
+
+
+
+
             <form onSubmit={submitTodo}>
                 <input
                     text="text"
                     name="list_item"
                     value={todoItem.list_item}
                     onChange={handleChanges}
-                    placeholder="blah blah"
+                    placeholder="Add task"
                 />
                 <button onClick={() => props.addTodo(todoItem)}>Add task</button>
             </form>
@@ -54,7 +67,7 @@ const SingleEvent = (props) => {
 
 const mapStateToProps = state => {
     return {
-
+        singleEventData:state.singleEventData
     }
 }
 

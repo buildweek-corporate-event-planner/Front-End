@@ -112,10 +112,10 @@ export const SINGLE_EVENT_FAILURE = "SINGLE_EVENT_FAILURE"
 
 export const fetchSingleEvent = (url) => (dispatch) => {
      dispatch({type: SINGLE_EVENT_START})
-     // TODO: GRAB SINGLE EVENT ~ /api/events/event-details/:id/:eventId
      axiosWithAuth()
      .get(`https://bw-corporate-event-planner.herokuapp.com/api${url}`)
      .then(response => {
-          console.log(response)
+          console.log(response.data)
+          dispatch({ type: SINGLE_EVENT_SUCCESS, payload: response.data })
      })
 }
