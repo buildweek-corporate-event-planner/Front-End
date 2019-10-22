@@ -35,5 +35,6 @@ const mapStateToProps = state => {
         event_date: state.event_date,
         event_time: state.event_time,
     }
+}
 
 export default Card
