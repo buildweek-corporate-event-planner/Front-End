@@ -46,6 +46,26 @@ export const register = (registerUser, history) => (dispatch) => {
 // * NEW EVENT ACTION CREATOR
 export const NEW_EVENT_START = "NEW_EVENT_START"
 export const NEW_EVENT_SUCCESS = "NEW_EVENT_SUCCESS"
+export const NEW_EVENT_FAILURE = "NEW_EVENT_FAILURE"
+
+export const addEvent = (makeEvent, history) => (dispatch) => {
+     dispatch({type: NEW_EVENT_START })
+     axios.post("https://bw-corporate-event-planner.herokuapp.com/api/events/", makeEvent)
+     .then(response => {
+          console.log(response)
+          dispatch({type: NEW_EVENT_SUCCESS})
+          history.push('/dashboard')
+     })
+     .catch(error => {
+          console.log(error)
+          dispatch({type: NEW_EVENT_FAILURE})
+     })
+}
+
+
+
+
+
 
 // simple axios post to create new events
 // to show the other events requires an axios call a component 

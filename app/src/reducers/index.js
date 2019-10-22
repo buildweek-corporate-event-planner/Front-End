@@ -4,7 +4,10 @@ import {
      LOGIN_SUCCESS,
      REGISTER_START,
      REGISTER_SUCCESS,
-     REGISTER_FAILURE
+     REGISTER_FAILURE,
+     NEW_EVENT_START,
+     NEW_EVENT_SUCCESS,
+     NEW_EVENT_FAILURE
 } from '../actions/'
 
 
@@ -13,7 +16,9 @@ const initialState = {
      isSubmitting: false,
      isFetching: false,
      isLoggedIn: false,
-     isRegistering: false
+     isRegistering: false,
+     isCreatingEvent:false, 
+     hasCreatedEvent: false
 }
 
 export const reducer = (state = initialState, action) => {
@@ -52,6 +57,24 @@ export const reducer = (state = initialState, action) => {
                     ...state,
                     isRegistering: false,
                     isSubmitting: false
+               }
+          case NEW_EVENT_START:
+               return{
+                    ...state, 
+                    hasCreatedEvent: false,
+                    isCreatingEvent: true
+               }
+          case NEW_EVENT_SUCCESS:
+               return{
+                    ...state,
+                    hasCreatedEvent: true,
+                    isCreatingEvent: false
+               }
+          case NEW_EVENT_FAILURE:
+               return{
+                    ...state,
+                    hasCreatedEvent: false,
+                    isCreatingEvent: false
                }
      default:
           return state;
