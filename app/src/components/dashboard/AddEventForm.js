@@ -84,13 +84,13 @@ const AddEventForm = (props) => {
                  onChange={handleChanges}
                 />
                </label>
-                {/* <input
+                <input
                  type="text"
                  name="assigned_to_user"
                  value={makeEvent.assigned_to_user}
                  placeholder=""
                  onChange={handleChanges}
-                /> */}
+                />
                 <button type="submit" onClick={() => props.addEvent(makeEvent, props.history)}>
                     Submit
                 </button>
@@ -107,6 +107,7 @@ const mapStateToProps = state => {
         budget: state.budget,
         event_date: state.event_date,
         event_time: state.event_time,
+        assigned_to_user: state.assigned_to_user
     }
 }
 
