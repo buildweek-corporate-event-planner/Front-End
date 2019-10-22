@@ -1,6 +1,12 @@
 import React, {useState} from 'react'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+
+import {addEvent} from '../../actions/'
 import Navbar from './navbar'
-const AddEventForm = () => {
+
+
+const AddEventForm = (props) => {
 
     const [ makeEvent, setMakeEvent ] = useState({
          "event_name": "",
@@ -8,7 +14,7 @@ const AddEventForm = () => {
          "budget": "",
          "event_date": "",
          "event_time": "",
-         "assigned_to_user": "",
+         "assigned_to_user": ""
         })
 
         	
@@ -30,9 +36,10 @@ const AddEventForm = () => {
             <h4>Fill out the form below to create a new Event</h4>
             <form onSubmit={handleSubmit}> 
                 <label> Name of Event:
-                <input 
+                <input
+                type="text" 
                 name="event_name"
-                value=""
+                value={makeEvent.event_name}
                 placeholder="Intersection of robo-advisors and pension funds"
                 onChange={handleChanges}
                 />
@@ -40,8 +47,9 @@ const AddEventForm = () => {
 
                 <label>Event Description:
                 <input
+                type="text"
                 name="description"
-                value=""
+                value={makeEvent.description}
                 placeholder="Fintech Summit"
                 onChange={handleChanges}
                 />
@@ -49,8 +57,9 @@ const AddEventForm = () => {
 
                 <label>Budget:
                 <input
+                 type="text"
                  name="budget"
-                 value=""
+                 value={makeEvent.budget}
                  placeholder="3000$"
                  onChange={handleChanges}
                 />
@@ -58,8 +67,9 @@ const AddEventForm = () => {
 
                 <label> Event Date:
                 <input
+                type="text"
                 name="event_date"
-                value=""
+                value={makeEvent.event_date}
                 placeholder="YYYY-MM-DD"
                 onChange={handleChanges}
                 />
@@ -67,19 +77,21 @@ const AddEventForm = () => {
 
                 <label> Time of event:
                 <input
+                 type="text"
                  name="event_time"
-                 value=""
+                 value={makeEvent.event_time}
                  placeholder="HH:MM"
                  onChange={handleChanges}
                 />
                </label>
                 {/* <input
+                 type="text"
                  name="assigned_to_user"
-                 value=""
+                 value={makeEvent.assigned_to_user}
                  placeholder=""
                  onChange={handleChanges}
                 /> */}
-                <button type="submit">
+                <button type="submit" onClick={() => props.addEvent(makeEvent, props.history)}>
                     Submit
                 </button>
             </form>
@@ -88,4 +100,14 @@ const AddEventForm = () => {
     )
 }
 
-export default AddEventForm
+const mapStateToProps = state => {
+    return{
+        event_name: state.event_name,
+        description: state.description,
+        budget: state.budget,
+        event_date: state.event_date,
+        event_time: state.event_time,
+    }
+}
+
+export default connect(mapStateToProps, {addEvent})(withRouter(AddEventForm))
