@@ -15,6 +15,11 @@ import Register from './components/onboarding/Register'
 import Dashboard from './components/dashboard/dashboard'
 import AddEventForm from './components/events/AddEventForm'
 
+// event imports
+import cardList from './components/events/cardList'
+import card from './components/events/card'
+import UpdateEventForm from './components/events/UpdateEventForm'
+
 function App() {
   return (
     <div className="App">
@@ -25,14 +30,17 @@ function App() {
         <PrivateRoute exact path="/" component={Navigation} />
 
         {/* Dashboarding Routes */}
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/add" component={AddEventForm} />
+        <PrivateRoute path="/dashboard" component={Dashboard} />
+        <PrivateRoute path="/add" component={AddEventForm} />
         
         {/* Event routes */}
-        <Route path="" />
+        <PrivateRoute exact path='/events-list' component={cardList} />
+        <PrivateRoute exact path='/events/:id' component={card}/>
+        <PrivateRoute exact path='/edit-event/:id' component={UpdateEventForm} />
       </Switch>
     </div>
   );
 }
 
 export default App;
+

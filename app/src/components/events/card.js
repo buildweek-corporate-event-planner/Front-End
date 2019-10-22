@@ -20,19 +20,20 @@ function Card(props){
           event.preventDefault()
      }
 
+     console.log(props)
 
      return(
           <div>
                {/* Spencer's divs */}
                < div >
                     <div>
-                         <h3>{event_name}</h3>
-                         <h4>{description}</h4>
+                         <h3>{props.event_name}</h3>
+                         <h4>{props.description}</h4>
                     </div>
                     <div>
-                         <h5>{event_date}</h5>
-                         <h5>{event_time}</h5>
-                         <h5>{budget}</h5>
+                         <h5>{props.event_date}</h5>
+                         <h5>{props.event_time}</h5>
+                         <h5>{props.budget}</h5>
                     </div>
                </div >
 
