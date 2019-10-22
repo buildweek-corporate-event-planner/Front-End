@@ -87,13 +87,13 @@ export const reducer = (state = initialState, action) => {
                     isCreatingTodo: true,
                     hasCreatedTodo: false
                }
-          case TODO_START:
+          case TODO_SUCCESS:
                return{
                     ...state,
                     isCreatingTodo: false,
                     hasCreatedTodo: true
                }
-          case TODO_START:
+          case TODO_FAILURE:
                return{
                     ...state,
                     isCreatingTodo: false,

@@ -28,6 +28,8 @@ function App() {
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/add" component={AddEventForm} />
         
+        {/* Event routes */}
+        <Route path="" />
       </Switch>
     </div>
   );
