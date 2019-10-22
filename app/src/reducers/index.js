@@ -25,7 +25,6 @@ const initialState = {
      isCreatingTodo:false,
      hasCreatedTodo:false
 }
-
 export const reducer = (state = initialState, action) => {
      switch(action.type){
           case REQUEST_START:
