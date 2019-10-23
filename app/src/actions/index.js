@@ -110,12 +110,27 @@ export const SINGLE_EVENT_START = "SINGLE_EVENT_START"
 export const SINGLE_EVENT_SUCCESS = "SINGLE_EVENT_SUCCESS"
 export const SINGLE_EVENT_FAILURE = "SINGLE_EVENT_FAILURE"
 
-export const fetchSingleEvent = (url) => (dispatch) => {
+export const fetchSingleEvent = (id) => (dispatch) => {
      dispatch({type: SINGLE_EVENT_START})
      axiosWithAuth()
-     .get(`https://bw-corporate-event-planner.herokuapp.com/api${url}`)
+     .get(`https://bw-corporate-event-planner.herokuapp.com/api/events/${id}`)
      .then(response => {
           console.log(response.data)
           dispatch({ type: SINGLE_EVENT_SUCCESS, payload: response.data })
+     })
+}
+
+// * UPDATE SINGLE EVENT ACTION CREATOR
+export const EDIT_START = "EDIT_START"
+export const EDIT_SUCCESS = "EDIT_SUCCESS"
+export const EDIT_FAILURE = "EDIT_FAILURE"
+
+export const editEvent = (updateEvent, id, setUpdateEvent) => (dispatch) => {
+     dispatch({type: EDIT_START})
+     axiosWithAuth()
+     .put(`https://bw-corporate-event-planner.herokuapp.com/api/events/${id}`, updateEvent)
+     .then(response => {
+          console.log(response)
+          setUpdateEvent(updateEvent)
      })
 }

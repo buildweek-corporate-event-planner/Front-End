@@ -9,12 +9,12 @@ import Navbar from '../dashboard/navbar'
 const AddEventForm = (props) => {
 
     const [ makeEvent, setMakeEvent ] = useState({
-         "event_name": "",
-         "description": "",
-         "budget": "",
-         "event_date": "",
-         "event_time": "",
-         "assigned_to_user": ""
+         event_name: "",
+         description: "",
+         budget: "",
+         event_date: "",
+         event_time: "",
+         assigned_to_user: ""
         })
 
         	

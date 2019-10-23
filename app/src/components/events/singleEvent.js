@@ -25,7 +25,7 @@ const SingleEvent = (props) => {
 
     // TODO: GETTING THE API data
     useEffect(() => {
-        props.fetchSingleEvent(props.match.url)
+        props.fetchSingleEvent(props.match.params.id)
     },[])
 
     let id = props.match.params.id
