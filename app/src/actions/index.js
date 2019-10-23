@@ -268,3 +268,55 @@ export const fetchVendor = (id) => dispatch => {
                dispatch({ type: VENDOR_LIST_FAILURE })
           })
 }
+
+
+
+// * TOGGLING SHOP LIST ACTION CREATOR
+export const TOGGLE_START = "TOGGLE_START"
+
+export const toggleItem = (id, shopping) => (dispatch) => {
+     dispatch({type: TOGGLE_START, payload: id})
+     axiosWithAuth()
+     .delete(`https://bw-corporate-event-planner.herokuapp.com/api/${shopping}/${id}`)
+     .then(response => {
+          console.log(response)
+     })
+     .catch(error => {
+          console.log(error)
+     })
+}
+
+// * TOGGLING TASK LIST ACTION CREATOR
+export const TOGGLE_TODO_START = "TOGGLE_TODO_START"
+
+export const toggleTodo = (id) => (dispatch) => {
+     dispatch({type: TOGGLE_TODO_START, payload: id})
+     axiosWithAuth()
+     .delete(`https://bw-corporate-event-planner.herokuapp.com/api/todo/${id}`)
+     .then(response => {
+          console.log(response)
+     })
+     .catch(error => {
+          console.log(error)
+     })
+}
+
+
+
+// * TOGGLING VENDOR ACTION CREATOR
+export const TOGGLE_VENDOR_START = "TOGGLE_VENDOR_START"
+
+export const toggleVendor = (id) => (dispatch) => {
+     dispatch({type: TOGGLE_VENDOR_START, payload: id})
+     axiosWithAuth()
+     .delete(`https://bw-corporate-event-planner.herokuapp.com/api/vendors/${id}`)
+     .then(response => {
+          console.log(response)
+     })
+     .catch(error => {
+          console.log(error)
+     })
+}
+
+
+

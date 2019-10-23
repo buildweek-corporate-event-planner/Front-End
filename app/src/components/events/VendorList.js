@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { fetchVendor, addVendor } from '../../actions/'
+import { fetchVendor, addVendor, toggleVendor } from '../../actions/'
 import { connect } from 'react-redux'
 
 
@@ -51,7 +51,7 @@ function VendorList(props) {
                     props.vendorList.map(item => {
                          return (
                               <div key={item.id}>
-                                   <p>{item.vendor_name}</p>
+                                   <p><span onClick={() => props.toggleVendor(item.id)}>X </span> {item.vendor_name}</p>
                               </div>
                          )
                     })
@@ -68,4 +68,4 @@ const mapStateToProps = state => {
      }
 }
 
-export default connect(mapStateToProps, { fetchVendor, addVendor })(VendorList)
+export default connect(mapStateToProps, { fetchVendor, addVendor, toggleVendor })(VendorList)
