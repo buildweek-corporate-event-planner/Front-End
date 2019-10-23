@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import { addTodo } from '../../actions/'
+import React, {useState, useEffect} from 'react'
+import { fetchTodo, addTodo } from '../../actions/'
 import { connect } from 'react-redux'
 
 
@@ -18,12 +18,17 @@ function TodoList(props){
      const submitTodo = event => {
           event.preventDefault()
      }
-     console.log(props)
+     useEffect(() => {
+          props.fetchTodo()
+     },[])
 
+     if(props.isFetching){
+          return <p>Loading Task List...</p>
+     }
      return(
-          <div>Hello I am TodoList
-
-            <form onSubmit={submitTodo}>
+          <div>
+               <h3>Tasks to Complete</h3>
+               <form onSubmit={submitTodo}>
                     <input
                          text="text"
                          name="list_name"
@@ -33,14 +38,24 @@ function TodoList(props){
                     />
                     <button onClick={() => props.addTodo(todoItem)}>Add task</button>
                </form>
+               {    
+                    props.todoList.map(item => {
+                         return(
+                              <div key={item.id}>
+                                   <p>{item.list_name}</p>
+                              </div>
+                         )
+                    })
+               }
           </div>
      )
 }
 
 const mapStateToProps = state => {
      return{
-          
+          todoList: state.todoList,
+          isFetching: state.isFetching
      }
 }
 
-export default connect(mapStateToProps, { addTodo })(TodoList)
+export default connect(mapStateToProps, { fetchTodo, addTodo })(TodoList)

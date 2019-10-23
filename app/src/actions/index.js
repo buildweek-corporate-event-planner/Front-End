@@ -166,3 +166,20 @@ export const addTodo = (todoItem) => (dispatch) => {
 }
 
 // * RENDERING TODO LIST ACTION CREATOR
+export const TODO_LIST_START = "TODO_LIST_START"
+export const TODO_LIST_SUCCESS = "TODO_LIST_SUCCESS"
+export const TODO_LIST_FAILURE = "TODO_LIST_FAILURE"
+
+export const fetchTodo = () => dispatch => {
+     dispatch({ type: TODO_LIST_START })
+     axiosWithAuth()
+          .get('https://bw-corporate-event-planner.herokuapp.com/api/todo/')
+          .then(response => {
+               console.log(response)
+               dispatch({ type: TODO_LIST_SUCCESS, payload: response.data })
+          })
+          .catch(error => {
+               console.log(error)
+               dispatch({ type: TODO_LIST_FAILURE })
+          })
+}
