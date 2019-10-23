@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from './navbar'
-import SingleEvent from '../events/singleEvent'
+import CardList from '../events/cardList'
 
 const Dashboard = () => {
 
@@ -8,7 +8,7 @@ const Dashboard = () => {
         <>
         <Navbar />
         <div>
-        
+        <CardList />
         </div>
         </>
     )

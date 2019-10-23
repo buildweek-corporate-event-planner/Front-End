@@ -10,7 +10,18 @@ import {
      NEW_EVENT_FAILURE,
      TODO_START,
      TODO_SUCCESS,
-     TODO_FAILURE
+     TODO_FAILURE,
+     FETCH_START,
+     FETCH_SUCCESS,
+     FETCH_FAILURE, 
+     SINGLE_EVENT_START,
+     SINGLE_EVENT_SUCCESS,
+     SINGLE_EVENT_FAILURE,
+     EDIT_START,
+     EDIT_SUCCESS,
+     EDIT_FAILURE, 
+     DELETE_START,
+     DELETE_SUCCESS
 } from '../actions/'
 
 
@@ -23,7 +34,11 @@ const initialState = {
      isCreatingEvent:false, 
      hasCreatedEvent: false,
      isCreatingTodo:false,
-     hasCreatedTodo:false
+     hasCreatedTodo:false,
+     eventList:[],
+     singleEventData:[],
+     isUpdating:false,
+     isDeleted:false
 }
 export const reducer = (state = initialState, action) => {
      switch(action.type){
@@ -54,7 +69,7 @@ export const reducer = (state = initialState, action) => {
                return{
                     ...state,
                     isRegistering: false,
-                    isSubmititing: true
+                    isSubmitting: true
                }
           case REGISTER_FAILURE:
                return{
@@ -97,6 +112,57 @@ export const reducer = (state = initialState, action) => {
                     ...state,
                     isCreatingTodo: false,
                     hasCreatedTodo: false
+               }
+          case FETCH_START:
+               return{
+                    ...state
+               }
+          case FETCH_SUCCESS:
+               return{
+                    ...state,
+                    eventList: action.payload
+               }
+          case FETCH_FAILURE:
+               return{
+                    ...state
+               }
+          case SINGLE_EVENT_START:
+               return{
+                    ...state
+               }
+          case SINGLE_EVENT_SUCCESS:
+               return{
+                    ...state,
+                    singleEventData:action.payload
+               }
+          case SINGLE_EVENT_FAILURE:
+               return{
+                    ...state
+               }
+          case EDIT_START:
+               return{
+                    ...state,
+                    isUpdating: false
+               }
+          case EDIT_SUCCESS:
+               return{
+                    ...state,
+                    isUpdating: true
+               }
+          case EDIT_FAILURE:
+               return{
+                    ...state,
+                    isUpdating: false
+               }
+          case DELETE_START:
+               return{
+                    ...state,
+                    isDeleted:false
+               }
+          case DELETE_SUCCESS:
+               return{
+                    ...state,
+                    isDeleted:true
                }
      default:
           return state;
