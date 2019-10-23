@@ -37,7 +37,9 @@ import {
      VENDOR_LIST_START,
      VENDOR_LIST_SUCCESS,
      VENDOR_LIST_FAILURE,
-     TOGGLE_START
+     TOGGLE_START, 
+     TOGGLE_TODO_START, 
+     TOGGLE_VENDOR_START
 } from '../actions/'
 
 
@@ -271,6 +273,16 @@ export const reducer = (state = initialState, action) => {
                return{
                     ...state,
                     shopList: state.shopList.filter(item => item.id !== action.payload) 
+               }
+          case TOGGLE_TODO_START:
+               return{
+                    ...state,
+                    todoList: state.todoList.filter(item => item.id !== action.payload)
+               }
+          case TOGGLE_VENDOR_START:
+               return{
+                    ...state,
+                    vendorList: state.vendorList.filter(item => item.id !== action.payload)
                }
      default:
           return state;

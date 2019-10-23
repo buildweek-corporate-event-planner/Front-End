@@ -271,20 +271,52 @@ export const fetchVendor = (id) => dispatch => {
 
 
 
-// * TOGGLING ITEMS ACTION CREATOR
+// * TOGGLING SHOP LIST ACTION CREATOR
 export const TOGGLE_START = "TOGGLE_START"
-export const TOGGLE_SUCCESS = "TOGGLE_SUCCESS"
-export const TOGGLE_FAILURE = "TOGGLE_FAILURE"
 
-export const toggleItem = (id) => (dispatch) => {
+export const toggleItem = (id, shopping) => (dispatch) => {
      dispatch({type: TOGGLE_START, payload: id})
      axiosWithAuth()
-     .delete(`https://bw-corporate-event-planner.herokuapp.com/api/shopping/${id}`)
+     .delete(`https://bw-corporate-event-planner.herokuapp.com/api/${shopping}/${id}`)
      .then(response => {
           console.log(response)
-          dispatch({type: TOGGLE_SUCCESS})
      })
      .catch(error => {
-          dispatch({type:TOGGLE_FAILURE})
+          console.log(error)
      })
 }
+
+// * TOGGLING TASK LIST ACTION CREATOR
+export const TOGGLE_TODO_START = "TOGGLE_TODO_START"
+
+export const toggleTodo = (id) => (dispatch) => {
+     dispatch({type: TOGGLE_TODO_START, payload: id})
+     axiosWithAuth()
+     .delete(`https://bw-corporate-event-planner.herokuapp.com/api/todo/${id}`)
+     .then(response => {
+          console.log(response)
+     })
+     .catch(error => {
+          console.log(error)
+     })
+}
+
+
+
+// * TOGGLING VENDOR ACTION CREATOR
+export const TOGGLE_VENDOR_START = "TOGGLE_VENDOR_START"
+
+export const toggleVendor = (id) => (dispatch) => {
+     dispatch({type: TOGGLE_VENDOR_START, payload: id})
+     axiosWithAuth()
+     .delete(`https://bw-corporate-event-planner.herokuapp.com/api/vendors/${id}`)
+     .then(response => {
+          console.log(response)
+     })
+     .catch(error => {
+          console.log(error)
+     })
+}
+
+
+

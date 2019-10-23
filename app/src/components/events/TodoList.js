@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { fetchTodo, addTodo } from '../../actions/'
+import { fetchTodo, addTodo, toggleTodo } from '../../actions/'
 import { connect } from 'react-redux'
 
 
@@ -51,7 +51,7 @@ function TodoList(props){
                     props.todoList.map(item => {
                          return(
                               <div key={item.id}>
-                                   <p>{item.list_name}</p>
+                                   <p><span onClick={() => props.toggleTodo(item.id)}>X </span> {item.list_name}</p>
                               </div>
                          )
                     })
@@ -68,4 +68,4 @@ const mapStateToProps = state => {
      }
 }
 
-export default connect(mapStateToProps, { fetchTodo, addTodo })(TodoList)
+export default connect(mapStateToProps, { fetchTodo, addTodo, toggleTodo })(TodoList)
