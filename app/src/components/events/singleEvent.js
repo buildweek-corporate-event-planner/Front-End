@@ -36,19 +36,8 @@ const SingleEvent = (props) => {
 
 
 
-            <form onSubmit={submitTodo}>
-                <input
-                    text="text"
-                    name="list_item"
-                    value={todoItem.list_item}
-                    onChange={handleChanges}
-                    placeholder="Add task"
-                />
-                <button onClick={() => props.addTodo(todoItem)}>Add task</button>
-            </form>
-
            
-        </>
+        
 
         <div>
             <h1>{props.singleEventData.event_name}</h1>
@@ -60,7 +49,7 @@ const SingleEvent = (props) => {
             <button onClick={() => props.deleteEvent(id, props.history)}>Delete</button>
             <TodoList id={id} />
         </div>
-
+        </>
     )
 }
 
