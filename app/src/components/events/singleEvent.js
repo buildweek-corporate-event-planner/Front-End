@@ -7,7 +7,7 @@ import Navbar from "../dashboard/navbar"
 import TodoList from './TodoList'
 import ShopList from './ShopList'
 import VendorList from './VendorList'
-
+import '../../App.css'
 const SingleEvent = (props) => {
     let id = props.match.params.id
     

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import {addEvent} from '../../actions/'
 import Navbar from '../dashboard/navbar'
-
+import '../../App.css'
 
 const AddEventForm = (props) => {
 

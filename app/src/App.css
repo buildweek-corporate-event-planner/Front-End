@@ -45,6 +45,7 @@ body{
 
 .bBtn{
   color: #f6f9fc;
+  font-weight: 550;
   background-color: #3ecf8e;
   border: 1px solid #3ecf8e;
   padding: 12px 36px;
@@ -62,6 +63,7 @@ body{
 
 .aBtn{
   color: #f6f9fc;
+  font-weight: 550;
   background-color: #7795f8;
   border: 1px solid #7795f8;
   padding: 12px 36px;
@@ -93,7 +95,53 @@ body{
   flex-direction: column;
 }
 
-.landingFormInner inputs{
-  width: 100%;
+/* navbar */
+.navbar{
+  margin: 2% auto;
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+/* 
+.largeNavItem{
+
 }
 
+.smallNavItem{
+  flex: ;
+}
+
+.NavItem{
+
+} */
+
+.largeNavItem h2{
+  width: 43%;
+  font-size: 25px;
+  font-weight: bold;
+  color: #e3ae3d;
+}
+.navButton{
+  padding: 6px 12px;
+  color: #f6f9fc;
+  background-color: #7795f8;
+  border: 1px solid #7795f8;
+  border-radius: 8px;
+}
+
+.navButton:hover{
+   box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* page title */
+
+.pageTitle{
+  width: 80%;
+  margin: 5% auto;
+  font-size: 17px;
+
+}
+
+.card{
+
+}
