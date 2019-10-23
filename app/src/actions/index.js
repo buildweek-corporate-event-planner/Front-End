@@ -124,7 +124,7 @@ export const fetchSingleEvent = (id) => (dispatch) => {
      })
 }
 
-// * UPDATE SINGLE EVENT ACTION CREATOR
+// * EDIT EVENT ACTION CREATOR
 export const EDIT_START = "EDIT_START"
 export const EDIT_SUCCESS = "EDIT_SUCCESS"
 export const EDIT_FAILURE = "EDIT_FAILURE"
@@ -135,11 +135,29 @@ export const editEvent = (updateEvent, id, history) => (dispatch) => {
      .put(`https://bw-corporate-event-planner.herokuapp.com/api/events/${id}`, updateEvent)
      .then(response => {
           console.log(response)
-          // setUpdateEvent(updateEvent)
+          dispatch({ type: EDIT_SUCCESS })
           history.push('/dashboard')
      })
      .catch(error => {
           console.log(error)
           dispatch({ type: EDIT_FAILURE })
+     })
+}
+
+// * DELETE EVENT ACTION CREATOR
+export const DELETE_START = "DELETE_START"
+export const DELETE_SUCCESS = "DELETE_SUCCESS"
+
+export const deleteEvent = (id, history) => (dispatch) => {
+     dispatch({ type:DELETE_START })
+     axiosWithAuth()
+     .delete(`https://bw-corporate-event-planner.herokuapp.com/api/events/${id}`)
+     .then(response => {
+          console.log(response)
+          dispatch({ type: DELETE_SUCCESS })
+          history.push('/dashboard')
+     })
+     .catch(error => {
+          console.log(error)
      })
 }

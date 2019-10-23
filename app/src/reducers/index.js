@@ -19,7 +19,9 @@ import {
      SINGLE_EVENT_FAILURE,
      EDIT_START,
      EDIT_SUCCESS,
-     EDIT_FAILURE
+     EDIT_FAILURE, 
+     DELETE_START,
+     DELETE_SUCCESS
 } from '../actions/'
 
 
@@ -35,7 +37,8 @@ const initialState = {
      hasCreatedTodo:false,
      eventList:[],
      singleEventData:[],
-     isUpdating:false
+     isUpdating:false,
+     isDeleted:false
 }
 export const reducer = (state = initialState, action) => {
      switch(action.type){
@@ -150,6 +153,16 @@ export const reducer = (state = initialState, action) => {
                return{
                     ...state,
                     isUpdating: false
+               }
+          case DELETE_START:
+               return{
+                    ...state,
+                    isDeleted:false
+               }
+          case DELETE_SUCCESS:
+               return{
+                    ...state,
+                    isDeleted:true
                }
      default:
           return state;

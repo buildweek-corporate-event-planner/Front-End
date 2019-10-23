@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-
-import { fetchSingleEvent, addTodo } from '../../actions/'
+import { withRouter } from 'react-router-dom'
+import { fetchSingleEvent, deleteEvent, addTodo } from '../../actions/'
 
 const SingleEvent = (props) => {
     const [todoItem, setTodoItem] = useState({
@@ -20,15 +20,13 @@ const SingleEvent = (props) => {
         event.preventDefault()
     }
 
-
-
-
     // TODO: GETTING THE API data
+    let id = props.match.params.id
     useEffect(() => {
-        props.fetchSingleEvent(props.match.params.id)
+        props.fetchSingleEvent(id)
     },[])
 
-    let id = props.match.params.id
+
 
     return (
         <>
@@ -39,7 +37,7 @@ const SingleEvent = (props) => {
                 <p>{props.singleEventData.event_time}</p>
                 <p>{props.singleEventData.budget}</p>
                 <button onClick={() => props.history.push(`/edit-event/${id}`)}>Edit</button>
-                <button>Delete</button>
+                <button onClick={() => props.deleteEvent(id, props.history)}>Delete</button>
             </div>
 
 
@@ -69,4 +67,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {fetchSingleEvent, addTodo})(SingleEvent)
+export default connect(mapStateToProps, {fetchSingleEvent, deleteEvent, addTodo})(withRouter(SingleEvent))

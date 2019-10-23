@@ -10,7 +10,7 @@ function CardList(props){
      },[])
 
      return(
-          <div>Hello I am Card List
+          <div>
                {
                     props.eventList.map(item => {
                          return(

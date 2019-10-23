@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import {editEvent} from '../../actions/'
+import { editEvent } from '../../actions/'
 import { withRouter } from 'react-router-dom'
 
 
