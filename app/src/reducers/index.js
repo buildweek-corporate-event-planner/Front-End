@@ -36,7 +36,8 @@ import {
      VENDOR_FAILURE,
      VENDOR_LIST_START,
      VENDOR_LIST_SUCCESS,
-     VENDOR_LIST_FAILURE
+     VENDOR_LIST_FAILURE,
+     TOGGLE_START
 } from '../actions/'
 
 
@@ -57,7 +58,8 @@ const initialState = {
      shopList: [],
      isCreatingShop: false,
      vendorList: [],
-     isCreatingVendor: false
+     isCreatingVendor: false,
+     isToggling:false
 }
 
 export const reducer = (state = initialState, action) => {
@@ -264,6 +266,11 @@ export const reducer = (state = initialState, action) => {
                return {
                     ...state,
                     isFetching: false
+               }
+          case TOGGLE_START:
+               return{
+                    ...state,
+                    shopList: state.shopList.filter(item => item.id !== action.payload) 
                }
      default:
           return state;

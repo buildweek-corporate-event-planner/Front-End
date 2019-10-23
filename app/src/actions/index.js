@@ -268,3 +268,23 @@ export const fetchVendor = (id) => dispatch => {
                dispatch({ type: VENDOR_LIST_FAILURE })
           })
 }
+
+
+
+// * TOGGLING ITEMS ACTION CREATOR
+export const TOGGLE_START = "TOGGLE_START"
+export const TOGGLE_SUCCESS = "TOGGLE_SUCCESS"
+export const TOGGLE_FAILURE = "TOGGLE_FAILURE"
+
+export const toggleItem = (id) => (dispatch) => {
+     dispatch({type: TOGGLE_START, payload: id})
+     axiosWithAuth()
+     .delete(`https://bw-corporate-event-planner.herokuapp.com/api/shopping/${id}`)
+     .then(response => {
+          console.log(response)
+          dispatch({type: TOGGLE_SUCCESS})
+     })
+     .catch(error => {
+          dispatch({type:TOGGLE_FAILURE})
+     })
+}

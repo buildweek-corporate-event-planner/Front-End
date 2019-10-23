@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { fetchShop, addShop } from '../../actions/'
+import { fetchShop, addShop, toggleItem } from '../../actions/'
 import { connect } from 'react-redux'
 
 
@@ -49,8 +49,8 @@ function ShopList (props) {
                {
                     props.shopList.map(item => {
                          return (
-                              <div key={item.id}>
-                                   <p>{item.list_name}</p>
+                              <div key={item.id} >
+                                   <p><span onClick={() => props.toggleItem(item.id)}>X </span> {item.list_name}</p>
                               </div>
                          )
                     })
@@ -67,4 +67,4 @@ const mapStateToProps = state => {
      }
 }
 
-export default connect(mapStateToProps, { fetchShop, addShop })(ShopList)
+export default connect(mapStateToProps, { fetchShop, addShop, toggleItem })(ShopList)
