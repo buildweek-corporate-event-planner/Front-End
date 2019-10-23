@@ -21,7 +21,10 @@ import {
      EDIT_SUCCESS,
      EDIT_FAILURE, 
      DELETE_START,
-     DELETE_SUCCESS
+     DELETE_SUCCESS, 
+     TODO_LIST_START,
+     TODO_LIST_SUCCESS,
+     TODO_LIST_FAILURE
 } from '../actions/'
 
 
@@ -38,7 +41,8 @@ const initialState = {
      eventList:[],
      singleEventData:[],
      isUpdating:false,
-     isDeleted:false
+     isDeleted:false,
+     todoList:[]
 }
 export const reducer = (state = initialState, action) => {
      switch(action.type){
@@ -79,19 +83,22 @@ export const reducer = (state = initialState, action) => {
                }
           case NEW_EVENT_START:
                return{
-                    ...state, 
+                    ...state,
+                    isFetching: true, 
                     hasCreatedEvent: false,
                     isCreatingEvent: true
                }
           case NEW_EVENT_SUCCESS:
                return{
                     ...state,
+                    isFetching: false,
                     hasCreatedEvent: true,
                     isCreatingEvent: false
                }
           case NEW_EVENT_FAILURE:
                return{
                     ...state,
+                    isFetching: false,
                     hasCreatedEvent: false,
                     isCreatingEvent: false
                }
@@ -163,6 +170,22 @@ export const reducer = (state = initialState, action) => {
                return{
                     ...state,
                     isDeleted:true
+               }
+          case TODO_LIST_START:
+               return{
+                    ...state,
+                    isFetching:true
+               }
+          case TODO_LIST_SUCCESS:
+               return{
+                    ...state,
+                    isFetching:false,
+                    todoList: action.payload
+               }
+          case TODO_LIST_FAILURE:
+               return{
+                    ...state,
+                    isFetching:false
                }
      default:
           return state;
