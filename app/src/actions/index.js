@@ -170,10 +170,10 @@ export const TODO_LIST_START = "TODO_LIST_START"
 export const TODO_LIST_SUCCESS = "TODO_LIST_SUCCESS"
 export const TODO_LIST_FAILURE = "TODO_LIST_FAILURE"
 
-export const fetchTodo = () => dispatch => {
+export const fetchTodo = (id) => dispatch => {
      dispatch({ type: TODO_LIST_START })
      axiosWithAuth()
-          .get('https://bw-corporate-event-planner.herokuapp.com/api/todo/')
+          .get(`https://bw-corporate-event-planner.herokuapp.com/api/todo/events/${id}`)
           .then(response => {
                console.log(response)
                dispatch({ type: TODO_LIST_SUCCESS, payload: response.data })

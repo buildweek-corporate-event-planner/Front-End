@@ -18,9 +18,10 @@ function TodoList(props){
      const submitTodo = event => {
           event.preventDefault()
      }
+     
      useEffect(() => {
-          props.fetchTodo()
-     },[])
+          props.fetchTodo(props.id)
+     },[props.isCreatingTodo])
 
      if(props.isFetching){
           return <p>Loading Task List...</p>
@@ -54,7 +55,8 @@ function TodoList(props){
 const mapStateToProps = state => {
      return{
           todoList: state.todoList,
-          isFetching: state.isFetching
+          isFetching: state.isFetching,
+          isCreatingTodo: state.isCreatingTodo
      }
 }
 
