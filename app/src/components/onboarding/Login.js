@@ -2,7 +2,14 @@ import React, {useState} from 'react'
 import { NavLink, withRouter } from 'react-router-dom'
 import { login } from '../../actions/'
 
+
+// material UI
+
+import { makeStyles } from '@material-ui/core/styles';
+import Input from '@material-ui/core/Input';
+
 import { connect } from 'react-redux'
+import '../../App.css'
 
 const Login = (props) => {
 
@@ -25,14 +32,17 @@ const Login = (props) => {
           props.history.push('/dashboard')
      }
 
+     
      return (
-          <div>
-               <div>
-                    <h3>Login to Ivory</h3>
-                    <h4>Login in to access the greatest event planning tool ever created!</h4>
+          <>
+          <div className="landingBox">
+               <div className="landingText">
+                    <h3 id="landingTitle"> Login to Ivory</h3>
+                    <h4 id="landingText">The <span id="landingSpan">greatest</span> event planning tool ever created!</h4>
                </div>
-               <div>
-                    <form onSubmit={handleSubmit}>
+               <div className="landingFormOuter">
+                    <form onSubmit={handleSubmit} className="landingFormInner">
+
                          <label>Email
                               <input
                               name="email"
@@ -40,6 +50,7 @@ const Login = (props) => {
                               value={loginInfo.email}
                               placeholder="user@email.com"
                               onChange={handleChanges}
+                              className="onboardingInput"
                               />
                          </label>
 
@@ -50,6 +61,7 @@ const Login = (props) => {
                               value={loginInfo.password}
                               placeholder="password"
                               onChange={handleChanges}
+                              className="onboardingInput"
                               />
                          </label>
 
@@ -57,8 +69,13 @@ const Login = (props) => {
                          <NavLink to='/'>Return to home.</NavLink>
                     </form>
                </div>
-               <small>Copyright (c) 2019 getivory.com, LLC </small>
+              
           </div>
+
+          <div className="footer">
+               <small>Copyright (c) 2019 Ivory Software, LLC </small>
+          </div>
+          </>
      )
 }
 

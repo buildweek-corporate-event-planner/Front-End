@@ -3,7 +3,7 @@ import { NavLink, withRouter } from 'react-router-dom'
 import { register } from '../../actions/'
 import {connect} from 'react-redux'
 
-
+import '../../App.css'
 const Register = (props) => {
 
      const [registerUser, setRegisterUser] = useState({
@@ -26,12 +26,13 @@ const Register = (props) => {
      }
 
      return (
-          <div>
-               <div>
-                    <h3>Signup for Ivory</h3>
-                    <h4>Signup to access the greatest event planning tool ever created!</h4>
-               </div>
-               <div>
+          <>
+          <div className="landingBox">
+                    <div className="landingText">
+                         <h3 id="landingTitle"> Signup for Ivory</h3>
+                         <h4 id="landingText">The <span id="landingSpan">greatest</span> event planning tool ever created!</h4>
+                    </div>
+               <div className="oboardingForm">
                     <form onSubmit={handleSubmit}>
                          <label>Email
                          <input
@@ -78,8 +79,12 @@ const Register = (props) => {
                          <NavLink to='/'>Return to home.</NavLink>
                     </form>
                </div>
-               <small>Copyright (c) 2019 getivory.com, LLC </small>
+               
           </div>
+               <div className="footer">
+               <small>Copyright (c) 2019 Ivory Software, LLC </small>
+               </div>
+          </>
      )
 }
 

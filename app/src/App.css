@@ -83,3 +83,17 @@ body{
 
 /* login form CSS */
 
+.landingFormOuter{
+  margin: 0% auto;
+  width: 45%;
+}
+
+.landingFormInner{
+  display: flex;
+  flex-direction: column;
+}
+
+.landingFormInner inputs{
+  width: 100%;
+}
+
