@@ -8,13 +8,15 @@ import Navbar from '../dashboard/navbar'
 
 const AddEventForm = (props) => {
 
+    let id = parseInt(localStorage.getItem('id'))
+    console.log(id)
     const [ makeEvent, setMakeEvent ] = useState({
          event_name: "",
          description: "",
          budget: "",
          event_date: "",
          event_time: "",
-         assigned_to_user: ""
+         assigned_to_user: id
         })
 
         	
@@ -83,13 +85,6 @@ const AddEventForm = (props) => {
                  onChange={handleChanges}
                 />
                </label>
-                <input
-                 type="text"
-                 name="assigned_to_user"
-                 value={makeEvent.assigned_to_user}
-                 placeholder="Assigned to User?"
-                 onChange={handleChanges}
-                />
                 <button type="submit" onClick={() => props.addEvent(makeEvent, props.history)}>
                     Submit
                 </button>

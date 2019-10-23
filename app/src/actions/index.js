@@ -183,3 +183,88 @@ export const fetchTodo = (id) => dispatch => {
                dispatch({ type: TODO_LIST_FAILURE })
           })
 }
+
+
+
+
+// * SHOP LIST ACTION CREATOR
+export const SHOP_START = "SHOP_START"
+export const SHOP_SUCCESS = "SHOP_SUCCESS"
+export const SHOP_FAILURE = "SHOP_FAILURE"
+
+export const addShop = (shopItem) => (dispatch) => {
+     dispatch({ type: SHOP_START })
+     console.log(shopItem)
+     axiosWithAuth()
+          .post('https://bw-corporate-event-planner.herokuapp.com/api/shopping/', shopItem)
+          .then(response => {
+               console.log(response)
+               dispatch({ type: SHOP_SUCCESS })
+          })
+          .catch(error => {
+               console.log(error)
+               dispatch({ type: SHOP_FAILURE })
+          })
+}
+
+// * RENDERING SHOP LIST ACTION CREATOR
+export const SHOP_LIST_START = "SHOP_LIST_START"
+export const SHOP_LIST_SUCCESS = "SHOP_LIST_SUCCESS"
+export const SHOP_LIST_FAILURE = "SHOP_LIST_FAILURE"
+
+export const fetchShop = (id) => dispatch => {
+     dispatch({ type: SHOP_LIST_START })
+     axiosWithAuth()
+          .get(`https://bw-corporate-event-planner.herokuapp.com/api/shopping/events/${id}`)
+          .then(response => {
+               console.log(response)
+               dispatch({ type: SHOP_LIST_SUCCESS, payload: response.data })
+          })
+          .catch(error => {
+               console.log(error)
+               dispatch({ type: SHOP_LIST_FAILURE })
+          })
+}
+
+
+
+
+
+// * VENDOR LIST ACTION CREATOR
+export const VENDOR_START = "VENDOR_START"
+export const VENDOR_SUCCESS = "VENDOR_SUCCESS"
+export const VENDOR_FAILURE = "VENDOR_FAILURE"
+
+export const addVendor = (vendorItem) => (dispatch) => {
+     dispatch({ type: VENDOR_START })
+     console.log(vendorItem)
+     axiosWithAuth()
+          .post('https://bw-corporate-event-planner.herokuapp.com/api/vendors/', vendorItem)
+          .then(response => {
+               console.log(response)
+               dispatch({ type: VENDOR_SUCCESS })
+          })
+          .catch(error => {
+               console.log(error)
+               dispatch({ type: VENDOR_FAILURE })
+          })
+}
+
+// * RENDERING TODO LIST ACTION CREATOR
+export const VENDOR_LIST_START = "VENDOR_LIST_START"
+export const VENDOR_LIST_SUCCESS = "VENDOR_LIST_SUCCESS"
+export const VENDOR_LIST_FAILURE = "VENDOR_LIST_FAILURE"
+
+export const fetchVendor = (id) => dispatch => {
+     dispatch({ type: VENDOR_LIST_START })
+     axiosWithAuth()
+          .get(`https://bw-corporate-event-planner.herokuapp.com/api/vendors/events/${id}`)
+          .then(response => {
+               console.log(response)
+               dispatch({ type: VENDOR_LIST_SUCCESS, payload: response.data })
+          })
+          .catch(error => {
+               console.log(error)
+               dispatch({ type: VENDOR_LIST_FAILURE })
+          })
+}

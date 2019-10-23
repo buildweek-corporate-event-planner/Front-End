@@ -24,9 +24,20 @@ import {
      DELETE_SUCCESS, 
      TODO_LIST_START,
      TODO_LIST_SUCCESS,
-     TODO_LIST_FAILURE
+     TODO_LIST_FAILURE,
+     SHOP_START,
+     SHOP_SUCCESS,
+     SHOP_FAILURE,
+     SHOP_LIST_START,
+     SHOP_LIST_SUCCESS,
+     SHOP_LIST_FAILURE,
+     VENDOR_START,
+     VENDOR_SUCCESS,
+     VENDOR_FAILURE,
+     VENDOR_LIST_START,
+     VENDOR_LIST_SUCCESS,
+     VENDOR_LIST_FAILURE
 } from '../actions/'
-
 
 
 const initialState = {
@@ -42,8 +53,13 @@ const initialState = {
      singleEventData:[],
      isUpdating:false,
      isDeleted:false,
-     todoList:[]
+     todoList:[],
+     shopList: [],
+     isCreatingShop: false,
+     vendorList: [],
+     isCreatingVendor: false
 }
+
 export const reducer = (state = initialState, action) => {
      switch(action.type){
           case REQUEST_START:
@@ -186,6 +202,68 @@ export const reducer = (state = initialState, action) => {
                return{
                     ...state,
                     isFetching:false
+               }
+          case SHOP_START:
+               return {
+                    ...state,
+                    isCreatingShop: true
+               }
+          case SHOP_SUCCESS:
+               return {
+                    ...state,
+                    isCreatingShop: false
+               }
+          case SHOP_FAILURE:
+               return {
+                    ...state,
+                    isCreatingShop: false
+               }
+          case SHOP_LIST_START:
+               return {
+                    ...state,
+                    isFetching: true
+               }
+          case SHOP_LIST_SUCCESS:
+               return {
+                    ...state,
+                    isFetching: false,
+                    shopList: action.payload
+               }
+          case SHOP_LIST_FAILURE:
+               return {
+                    ...state,
+                    isFetching: false
+               }
+          case VENDOR_START:
+               return {
+                    ...state,
+                    isCreatingVendor: true
+               }
+          case VENDOR_SUCCESS:
+               return {
+                    ...state,
+                    isCreatingVendor: false
+               }
+          case VENDOR_FAILURE:
+               return {
+                    ...state,
+                    isCreatingVendor: false
+               }
+          case VENDOR_LIST_START:
+               return {
+                    ...state,
+                    isFetching: true
+               }
+          case VENDOR_LIST_SUCCESS:
+               return {
+                    ...state,
+                    isFetching: false,
+                    vendorList: action.payload
+               }
+          case VENDOR_LIST_FAILURE:
+               return {
+                    ...state,
+                    isFetching: false
                }
      default:
           return state;
