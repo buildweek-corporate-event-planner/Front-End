@@ -1,46 +1,46 @@
 import React, { useState, useEffect } from 'react'
-import { fetchShop, addShop } from '../../actions/'
+import { fetchVendor, addVendor } from '../../actions/'
 import { connect } from 'react-redux'
 
 
 
-function ShopList(props) {
-     const [shopItem, setShopItem] = useState({
+function VendorList(props) {
+     const [vendorItem, setVendorItem] = useState({
           "list_name": '',
           "assigned_to_event": `${props.id}`
      })
      const handleChanges = event => {
-          setShopItem({
-               ...shopItem,
+          setVendorItem({
+               ...vendorItem,
                [event.target.name]: event.target.value
           })
      }
-     const submitShop = event => {
+     const submitVendor = event => {
           event.preventDefault()
      }
 
      useEffect(() => {
-          props.fetchShop(props.id)
-     }, [props.isCreatingShop])
+          props.fetchVendor(props.id)
+     }, [props.isCreatingVendor])
 
      if (props.isFetching) {
-          return <p>Loading Task List...</p>
+          return <p>Loading Vendors...</p>
      }
      return (
           <div>
-               <h3>Shopping List</h3>
-               <form onSubmit={submitShop}>
+               <h3>Vendors</h3>
+               <form onSubmit={submitVendor}>
                     <input
                          text="text"
                          name="list_name"
-                         value={shopItem.list_name}
+                         value={vendorItem.list_name}
                          onChange={handleChanges}
-                         placeholder="Add item"
+                         placeholder="Add vendor"
                     />
-                    <button onClick={() => props.addShop(shopItem)}>Add task</button>
+                    <button onClick={() => props.addVendor(vendorItem)}>Add vendor</button>
                </form>
                {
-                    props.shopList.map(item => {
+                    props.vendorList.map(item => {
                          return (
                               <div key={item.id}>
                                    <p>{item.list_name}</p>
@@ -54,10 +54,10 @@ function ShopList(props) {
 
 const mapStateToProps = state => {
      return {
-          shopList: state.shopList,
+          vendorList: state.vendorList,
           isFetching: state.isFetching,
-          isCreatingShop: state.isCreatingShop
+          isCreatingVendor: state.isCreatingVendor
      }
 }
 
-export default connect(mapStateToProps, { fetchShop, addShop })(ShopList)
+export default connect(mapStateToProps, { fetchVendor, addVendor })(VendorList)

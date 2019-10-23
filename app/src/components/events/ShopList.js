@@ -24,7 +24,7 @@ function ShopList (props) {
      }, [props.isCreatingShop])
 
      if (props.isFetching) {
-          return <p>Loading Task List...</p>
+          return <p>Loading Shopping List...</p>
      }
      return (
           <div>
@@ -37,7 +37,7 @@ function ShopList (props) {
                          onChange={handleChanges}
                          placeholder="Add item"
                     />
-                    <button onClick={() => props.addShop(shopItem)}>Add task</button>
+                    <button onClick={() => props.addShop(shopItem)}>Add item</button>
                </form>
                {
                     props.shopList.map(item => {

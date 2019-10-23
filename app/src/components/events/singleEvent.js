@@ -5,6 +5,8 @@ import { fetchSingleEvent, deleteEvent } from '../../actions/'
 
 import Navbar from "../dashboard/navbar"
 import TodoList from './TodoList'
+import ShopList from './ShopList'
+import VendorList from './VendorList'
 
 const SingleEvent = (props) => {
     let id = props.match.params.id
@@ -24,7 +26,9 @@ const SingleEvent = (props) => {
                 <p>{props.singleEventData.budget}</p>
                 <button onClick={() => props.history.push(`/edit-event/${id}`)}>Edit</button>
                 <button onClick={() => props.deleteEvent(id, props.history)}>Delete</button>
+                <VendorList id={id} />
                 <TodoList id={id} />
+                <ShopList id={id} />
             </div>
         </>
     )

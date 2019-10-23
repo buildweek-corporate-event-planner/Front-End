@@ -24,7 +24,7 @@ function TodoList(props){
      },[props.isCreatingTodo])
 
      if(props.isFetching){
-          return <p>Loading Task List...</p>
+          return <p>Loading Tasks...</p>
      }
      return(
           <div>
