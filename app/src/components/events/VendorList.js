@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 
 function VendorList(props) {
      const [vendorItem, setVendorItem] = useState({
-          "list_name": '',
+          "vendor_name": '',
           "assigned_to_event": `${props.id}`
      })
      const handleChanges = event => {
@@ -15,25 +15,33 @@ function VendorList(props) {
                [event.target.name]: event.target.value
           })
      }
-     const submitVendor = event => {
-          event.preventDefault()
+     const resetForm = () => {
+          setVendorItem({
+               "vendor_name": '',
+               "assigned_to_event": `${props.id}`
+          })
      }
-
+    
      useEffect(() => {
           props.fetchVendor(props.id)
+          resetForm()
      }, [props.isCreatingVendor])
 
      if (props.isFetching) {
           return <p>Loading Vendors...</p>
      }
+     const submitVendor = event => {
+          event.preventDefault()
+     }
+
      return (
           <div>
                <h3>Vendors</h3>
                <form onSubmit={submitVendor}>
                     <input
                          text="text"
-                         name="list_name"
-                         value={vendorItem.list_name}
+                         name="vendor_name"
+                         value={vendorItem.vendor_name}
                          onChange={handleChanges}
                          placeholder="Add vendor"
                     />
@@ -43,7 +51,7 @@ function VendorList(props) {
                     props.vendorList.map(item => {
                          return (
                               <div key={item.id}>
-                                   <p>{item.list_name}</p>
+                                   <p>{item.vendor_name}</p>
                               </div>
                          )
                     })

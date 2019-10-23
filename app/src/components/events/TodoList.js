@@ -18,9 +18,17 @@ function TodoList(props){
      const submitTodo = event => {
           event.preventDefault()
      }
+     const resetForm = () => {
+          setTodoItem({
+               "list_name": '',
+               "assigned_to_event": `${props.id}`
+          })
+     }
+
      
      useEffect(() => {
           props.fetchTodo(props.id)
+          resetForm()
      },[props.isCreatingTodo])
 
      if(props.isFetching){

@@ -18,9 +18,16 @@ function ShopList (props) {
      const submitShop = event => {
           event.preventDefault()
      }
+     const resetForm = () => {
+          setShopItem({
+               "list_name": '',
+               "assigned_to_event": `${props.id}`
+          })
+     }
 
      useEffect(() => {
           props.fetchShop(props.id)
+          resetForm()
      }, [props.isCreatingShop])
 
      if (props.isFetching) {

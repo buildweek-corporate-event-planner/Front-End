@@ -26,9 +26,10 @@ const SingleEvent = (props) => {
                 <p>{props.singleEventData.budget}</p>
                 <button onClick={() => props.history.push(`/edit-event/${id}`)}>Edit</button>
                 <button onClick={() => props.deleteEvent(id, props.history)}>Delete</button>
-                <VendorList id={id} />
+                
                 <TodoList id={id} />
                 <ShopList id={id} />
+                <VendorList id={id} />
             </div>
         </>
     )
