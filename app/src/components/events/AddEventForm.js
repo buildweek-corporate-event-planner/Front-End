@@ -87,7 +87,7 @@ const AddEventForm = (props) => {
                  type="text"
                  name="assigned_to_user"
                  value={makeEvent.assigned_to_user}
-                 placeholder=""
+                 placeholder="Assigned to User?"
                  onChange={handleChanges}
                 />
                 <button type="submit" onClick={() => props.addEvent(makeEvent, props.history)}>

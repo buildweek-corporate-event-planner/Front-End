@@ -8,7 +8,7 @@ const Navbar = () => {
             <h2>Ivory</h2>
             </div>
             <div>
-                <h3>Search Events Here!</h3>
+                <Link to="/dashboard"><button>Dashboard</button></Link>
             </div>
             <div>
                 <Link to='/add'><button className="navButton">Create New Event</button></Link>
