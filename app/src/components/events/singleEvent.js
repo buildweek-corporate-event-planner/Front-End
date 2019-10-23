@@ -4,10 +4,7 @@ import { withRouter } from 'react-router-dom'
 import { fetchSingleEvent, deleteEvent } from '../../actions/'
 
 import Navbar from "../dashboard/navbar"
-
-
 import TodoList from './TodoList'
-
 
 const SingleEvent = (props) => {
     let id = props.match.params.id
