@@ -98,7 +98,7 @@ export const fetchData = () => (dispatch) => {
      })
      .catch(error => {
           console.log(error)
-          dispatch({ type: FETCH_FAILURE, payload: error})
+          dispatch({ type: FETCH_FAILURE })
      })
 }
 
@@ -118,6 +118,10 @@ export const fetchSingleEvent = (id) => (dispatch) => {
           console.log(response.data)
           dispatch({ type: SINGLE_EVENT_SUCCESS, payload: response.data })
      })
+     .catch(error => {
+          console.log(error)
+          dispatch({ type: SINGLE_EVENT_FAILURE })
+     })
 }
 
 // * UPDATE SINGLE EVENT ACTION CREATOR
@@ -125,12 +129,17 @@ export const EDIT_START = "EDIT_START"
 export const EDIT_SUCCESS = "EDIT_SUCCESS"
 export const EDIT_FAILURE = "EDIT_FAILURE"
 
-export const editEvent = (updateEvent, id, setUpdateEvent) => (dispatch) => {
+export const editEvent = (updateEvent, id, history) => (dispatch) => {
      dispatch({type: EDIT_START})
      axiosWithAuth()
      .put(`https://bw-corporate-event-planner.herokuapp.com/api/events/${id}`, updateEvent)
      .then(response => {
           console.log(response)
-          setUpdateEvent(updateEvent)
+          // setUpdateEvent(updateEvent)
+          history.push('/dashboard')
+     })
+     .catch(error => {
+          console.log(error)
+          dispatch({ type: EDIT_FAILURE })
      })
 }

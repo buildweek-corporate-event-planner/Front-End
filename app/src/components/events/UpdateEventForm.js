@@ -1,27 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { fetchSingleEvent } from '../../actions/'
-
 import {editEvent} from '../../actions/'
+import { withRouter } from 'react-router-dom'
 
-// const initialEvent = {
-//      event_name: "",
-//      description: "",
-//      budget: "",
-//      event_date: "",
-//      event_time: "",
-//      assigned_to_user: ""
-// }
+
 
 function UpdateEventForm(props){
 
      const [updateEvent, setUpdateEvent] = useState(props.singleEventData)
-     // useEffect(() => {
-     //      props.fetchSingleEvent(props.match.params.id)
-     //      if(props.singleEventData) setUpdateEvent(props.singleEventData)
-     //      console.log(props)
-     // }, [])
-     
+ 
      const handleChanges = event => {
           setUpdateEvent({
                ...updateEvent,
@@ -70,12 +57,11 @@ function UpdateEventForm(props){
                          onChange={handleChanges}
                          placeholder="budget"
                     />
-                    <button onClick={() => props.editEvent(updateEvent, props.match.params.id,setUpdateEvent) }>Update event</button>
+                    <button onClick={() => props.editEvent(updateEvent, props.match.params.id, props.history) }>Update event</button>
                </form>
           </div>
      )
 }
-
 
 
 const mapStateToProps = state => {
@@ -84,4 +70,4 @@ const mapStateToProps = state => {
      }
 }
 
-export default connect(mapStateToProps, {editEvent})(UpdateEventForm)
+export default connect(mapStateToProps, {editEvent})(withRouter(UpdateEventForm))

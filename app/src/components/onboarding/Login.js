@@ -64,8 +64,7 @@ const Login = (props) => {
 
 const mapStateToProps = state => {
      return{
-          email: state.email,
-          password: state.password
+
      }
 }
 
