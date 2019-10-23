@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { fetchSingleEvent, deleteEvent, addTodo } from '../../actions/'
 
+import Navbar from "../dashboard/navbar"
 const SingleEvent = (props) => {
     const [todoItem, setTodoItem] = useState({
         list_item:"",
@@ -30,6 +31,8 @@ const SingleEvent = (props) => {
 
     return (
         <>
+
+            <Navbar />
             <div>
                 <h1>{props.singleEventData.event_name}</h1>
                 <h3>{props.singleEventData.description}</h3>

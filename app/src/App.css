@@ -1,22 +1,85 @@
-.App {
+body{
+  font-family: 'Roboto', sans-serif;
+  background-color: #f6f9fc;
+  text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* landing page CSS */
+.landingBox{
+  width: 70%;
+  margin: 15% auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  /* border: 1px solid black; */
+}
+
+.landingText{
+  margin: 1% auto;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+#landingTitle{
+  font-size: 1.8rem;
+  color: #e3ae3d;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#landingSpan{
+  color: #7795f8;
 }
 
-.App-link {
-  color: #09d3ac;
+#landingText{
+  font-size: 1.3rem;
+  color: #6B7c93;
 }
+
+.landingButtons{
+ padding: 20px;
+ margin: 1% auto;
+ display: flex;
+ justify-content: space-between;
+}
+
+.bBtn{
+  color: #f6f9fc;
+  background-color: #3ecf8e;
+  border: 1px solid #3ecf8e;
+  padding: 12px 36px;
+  border-radius: 35px;
+  margin-left: 10px;
+}
+
+.bBtn:hover{
+  background-color: #40d693;
+  border: 1px solid #40d693;
+  transform: translateY(-.8px);
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+
+.aBtn{
+  color: #f6f9fc;
+  background-color: #7795f8;
+  border: 1px solid #7795f8;
+  padding: 12px 36px;
+  border-radius: 35px;
+  margin-right: 10px;
+}
+
+.aBtn:hover{
+  background-color: #7795f8;
+  transform: translateY(-1px);
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.footer{
+  font-size: 0.75rem;
+  margin-top: 40%;
+  text-align: center;
+}
+
+/* login form CSS */
+
