@@ -23,14 +23,11 @@ function CardList(props){
                     })
                }
           </div>
-
      )
 }
-
 const mapStateToProps = state => {
      return{
           eventList:state.eventList
      }
 }
-
 export default connect(mapStateToProps, {fetchData})(CardList)

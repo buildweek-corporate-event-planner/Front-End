@@ -79,19 +79,22 @@ export const reducer = (state = initialState, action) => {
                }
           case NEW_EVENT_START:
                return{
-                    ...state, 
+                    ...state,
+                    isFetching: true, 
                     hasCreatedEvent: false,
                     isCreatingEvent: true
                }
           case NEW_EVENT_SUCCESS:
                return{
                     ...state,
+                    isFetching: false,
                     hasCreatedEvent: true,
                     isCreatingEvent: false
                }
           case NEW_EVENT_FAILURE:
                return{
                     ...state,
+                    isFetching: false,
                     hasCreatedEvent: false,
                     isCreatingEvent: false
                }

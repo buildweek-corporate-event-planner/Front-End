@@ -15,6 +15,7 @@ export const login = (credentials, history) => (dispatch) => {
      .then(response => {
           console.log(response)
           localStorage.setItem("token", response.data.token)
+          localStorage.setItem("id", response.data.userid)
           dispatch({type: LOGIN_SUCCESS})
           history.push('/dashboard')
      })
@@ -53,32 +54,12 @@ export const addEvent = (makeEvent, history) => (dispatch) => {
      .post('https://bw-corporate-event-planner.herokuapp.com/api/events', makeEvent)
      .then(response => {
           console.log(response)
-          dispatch({type: NEW_EVENT_SUCCESS})
           history.push('/dashboard')
+          dispatch({ type: NEW_EVENT_SUCCESS })
      })
      .catch(error => {
           console.log(error)
           dispatch({type: NEW_EVENT_FAILURE})
-     })
-}
-
-// * TODO LIST ACTION CREATOR
-export const TODO_START = "TODO_START"
-export const TODO_SUCCESS = "TODO_SUCCESSS"
-export const TODO_FAILURE = "TODO_FAILURE"
-
-export const addTodo = (todoItem) => (dispatch) => {
-     dispatch({type: TODO_START})
-     console.log(todoItem)
-     axiosWithAuth()
-          .post('https://bw-corporate-event-planner.herokuapp.com/api/todo/listItem', todoItem)
-     .then(response => {
-          console.log(response)
-          dispatch({ type: TODO_SUCCESS })
-     })
-     .catch(error => {
-          console.log(error)
-          dispatch({ type: TODO_FAILURE })
      })
 }
 
@@ -90,8 +71,9 @@ export const FETCH_FAILURE = "FETCH_FAILURE"
 
 export const fetchData = () => (dispatch) => {
      dispatch({type: FETCH_START})
+     let id = parseInt(localStorage.getItem('id'))
      axiosWithAuth()
-     .get('https://bw-corporate-event-planner.herokuapp.com/api/events/user/1')
+     .get(`https://bw-corporate-event-planner.herokuapp.com/api/events/user/${id}`)
      .then(response => {
           console.log(response)
           dispatch({type: FETCH_SUCCESS, payload: response.data})
@@ -161,3 +143,26 @@ export const deleteEvent = (id, history) => (dispatch) => {
           console.log(error)
      })
 }
+
+
+// * TODO LIST ACTION CREATOR
+export const TODO_START = "TODO_START"
+export const TODO_SUCCESS = "TODO_SUCCESS"
+export const TODO_FAILURE = "TODO_FAILURE"
+
+export const addTodo = (todoItem) => (dispatch) => {
+     dispatch({ type: TODO_START })
+     console.log(todoItem)
+     axiosWithAuth()
+          .post('https://bw-corporate-event-planner.herokuapp.com/api/todo/', todoItem)
+          .then(response => {
+               console.log(response)
+               dispatch({ type: TODO_SUCCESS })
+          })
+          .catch(error => {
+               console.log(error)
+               dispatch({ type: TODO_FAILURE })
+          })
+}
+
+// * RENDERING TODO LIST ACTION CREATOR

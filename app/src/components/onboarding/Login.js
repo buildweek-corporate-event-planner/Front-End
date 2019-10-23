@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import { NavLink, withRouter } from 'react-router-dom'
 import { login } from '../../actions/'
-
 import { connect } from 'react-redux'
 
 const Login = (props) => {
@@ -18,7 +17,6 @@ const Login = (props) => {
           })
      }
 
-    
      const handleSubmit = e => {
           e.preventDefault();
           console.log("Submission")
