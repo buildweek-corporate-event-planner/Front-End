@@ -33,7 +33,7 @@ const AddEventForm = (props) => {
     return (
         <>
         <Navbar />
-        <div className="landingBox">
+        <div className="landingBoxAddEvent">
                <div className="landingText">
                     <h4 id="landingText">Use the form below to create a new event!</h4>
                </div>
@@ -50,7 +50,7 @@ const AddEventForm = (props) => {
                 className="onboardingInput"
                 />
                 </label>
-
+                <br />
                 <label className="onboardingLabel">Event Description:
                 <br />
                 <input
@@ -62,7 +62,7 @@ const AddEventForm = (props) => {
                 className="onboardingInput"
                 />
                 </label>
-
+                <br />
                 <label className="onboardingLabel">Budget:
                 <br />
                 <input
@@ -74,7 +74,7 @@ const AddEventForm = (props) => {
                  className="onboardingInput"
                 />
                 </label>
-
+                <br />
                 <label className="onboardingLabel"> Event Date:
                 <br />
                 <input
@@ -86,7 +86,7 @@ const AddEventForm = (props) => {
                 className="onboardingInput"
                 />
                 </label>
-
+                <br />
                 <label className="onboardingLabel"> Time of event:
                 <br />
                 <input
@@ -98,6 +98,7 @@ const AddEventForm = (props) => {
                  className="onboardingInput"
                 />
                </label>
+               <br />
                 <button id="login-button" className="home-button" type="submit" onClick={() => props.addEvent(makeEvent, props.history)}>
                     Submit
                 </button>
