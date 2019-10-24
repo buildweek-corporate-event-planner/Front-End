@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { fetchShop, addShop, toggleItem } from '../../actions/'
 import { connect } from 'react-redux'
 
+import { makeStyles } from '@material-ui/core/styles';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 
 
 function ShopList (props) {
@@ -9,6 +12,14 @@ function ShopList (props) {
           "list_name": '',
           "assigned_to_event": `${props.id}`
      })
+
+     const useStyles = makeStyles(theme => ({
+          progress: {
+            margin: theme.spacing(2),
+          },
+        }));
+        const classes = useStyles();
+        
      const handleChanges = event => {
           setShopItem({
                ...shopItem,
@@ -31,10 +42,10 @@ function ShopList (props) {
      }, [props.isCreatingShop])
 
      if (props.isFetching) {
-          return <p>Loading Shopping List...</p>
+          return  <CircularProgress className={classes.progress} />
      }
      return (
-          <div>
+          <div className="eventSub"> 
                <h3>Shopping List</h3>
                <form onSubmit={submitShop}>
                     <input
@@ -43,8 +54,9 @@ function ShopList (props) {
                          value={shopItem.list_name}
                          onChange={handleChanges}
                          placeholder="Add item"
+                         className="eventInput"
                     />
-                    <button onClick={() => props.addShop(shopItem)}>Add item</button>
+                    <button className="addBtn" onClick={() => props.addShop(shopItem)}>Add item</button>
                </form>
                {
                     props.shopList.map(item => {
