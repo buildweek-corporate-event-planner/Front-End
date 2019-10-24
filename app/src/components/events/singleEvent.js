@@ -48,6 +48,7 @@ const SingleEvent = (props) => {
             <TodoList id={id} />
             <ShopList id={id} />
             <VendorList id={id} />
+
         </div>
         </>
     )
