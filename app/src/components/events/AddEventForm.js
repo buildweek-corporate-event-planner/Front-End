@@ -33,62 +33,76 @@ const AddEventForm = (props) => {
     return (
         <>
         <Navbar />
-        <div>
-            <h4>Fill out the form below to create a new Event</h4>
-            <form onSubmit={handleSubmit}> 
-                <label> Name of Event:
+        <div className="landingBox">
+               <div className="landingText">
+                    <h4 id="landingText">Use the form below to create a new event!</h4>
+               </div>
+        <div className="oboardingFormOuter">
+            <form onSubmit={handleSubmit} className="landingFormInner"> 
+                <label className="onboardingLabel"> Name of Event:
+                <br />
                 <input
                 type="text" 
                 name="event_name"
                 value={makeEvent.event_name}
                 placeholder="Intersection of robo-advisors and pension funds"
                 onChange={handleChanges}
+                className="onboardingInput"
                 />
                 </label>
 
-                <label>Event Description:
+                <label className="onboardingLabel">Event Description:
+                <br />
                 <input
                 type="text"
                 name="description"
                 value={makeEvent.description}
                 placeholder="Fintech Summit"
                 onChange={handleChanges}
+                className="onboardingInput"
                 />
                 </label>
 
-                <label>Budget:
+                <label className="onboardingLabel">Budget:
+                <br />
                 <input
                  type="text"
                  name="budget"
                  value={makeEvent.budget}
                  placeholder="3000$"
                  onChange={handleChanges}
+                 className="onboardingInput"
                 />
                 </label>
 
-                <label> Event Date:
+                <label className="onboardingLabel"> Event Date:
+                <br />
                 <input
                 type="text"
                 name="event_date"
                 value={makeEvent.event_date}
                 placeholder="YYYY-MM-DD"
                 onChange={handleChanges}
+                className="onboardingInput"
                 />
                 </label>
 
-                <label> Time of event:
+                <label className="onboardingLabel"> Time of event:
+                <br />
                 <input
                  type="text"
                  name="event_time"
                  value={makeEvent.event_time}
                  placeholder="HH:MM"
                  onChange={handleChanges}
+                 className="onboardingInput"
                 />
                </label>
-                <button type="submit" onClick={() => props.addEvent(makeEvent, props.history)}>
+                <button id="login-button" className="home-button" type="submit" onClick={() => props.addEvent(makeEvent, props.history)}>
                     Submit
                 </button>
             </form>
+        </div>
         </div>
         </>
     )

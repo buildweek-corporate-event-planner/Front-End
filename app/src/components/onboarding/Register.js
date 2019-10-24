@@ -32,52 +32,64 @@ const Register = (props) => {
                          <h3 id="landingTitle"> Signup for Ivory</h3>
                          <h4 id="landingText">The <span id="landingSpan">greatest</span> event planning tool ever created!</h4>
                     </div>
-               <div className="oboardingForm">
-                    <form onSubmit={handleSubmit}>
-                         <label>Email
+               <div className="oboardingFormOuter">
+                    <form onSubmit={handleSubmit} className="landingFormInner">
+                         <label className="onboardingLabel">Email
+                         <br />
                          <input
                          name="email"
                          type="email"
                          value={registerUser.email}
                          placeholder="user@email.com"
                          onChange={handleChanges}
+                         className="onboardingInput"
+
                          />
                          </label>
                          <br />
-                        <label>Password
+                        <label className="onboardingLabel">Password
+                        <br />
                         <input
                             name="password"
                             type="password"
                             value={registerUser.password}
                             placeholder="password"
                             onChange={handleChanges}
+                            className="onboardingInput"
+
                          />
                          </label>
                               <br />
-                        <label>Role
+                        <label className="onboardingLabel">Role
+                        <br />
                          <input
                          name="role"
                          type="text"
                          value={registerUser.role}
                          placeholder="PL, TL, SL, etc."
                          onChange={handleChanges}
+                         className="onboardingInput"
+
                          />
                          </label>
 
                               <br />
-                        <label>Company
+                        <label className="onboardingLabel">Company
+                        <br />
                          <input
                          name="company"
                          type="text"
                          value={registerUser.company}
                          placeholder="Stripe, Microsoft, ect."
                          onChange={handleChanges}
+                         className="onboardingInput"
+
                          />
                          </label>
                               <br />
-                         <button className="home-button" type="submit" onClick={() => props.register(registerUser, props.history)}>Signup</button>
-                              <br />
-                         <NavLink to='/'>Return to home.</NavLink>
+                         <button id="login-button" className="home-button"type="submit" onClick={() => props.register(registerUser, props.history)}>Signup</button>
+                    
+                         <NavLink  className="landingNavLink"to='/'>Return to home.</NavLink>
                     </form>
                </div>
                

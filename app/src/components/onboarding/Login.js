@@ -41,7 +41,8 @@ const Login = (props) => {
                <div className="landingFormOuter">
                     <form onSubmit={handleSubmit} className="landingFormInner">
                               <br />
-                         <label>Email: 
+                         <label className="onboardingLabel">Email: 
+                         <br />
                               <input
                               name="email"
                               type="email"
@@ -52,7 +53,8 @@ const Login = (props) => {
                               />
                          </label>
                               <br />
-                        <label>Password: 
+                        <label className="onboardingLabel">Password: 
+                        <br />
                          <input
                               name="password"
                               type="password"
@@ -64,8 +66,9 @@ const Login = (props) => {
                          </label>
                               <br />
                          <button id="login-button" className="home-button" type="submit" onClick={() => props.login(loginInfo, props.history)}>Login</button>
-                         <NavLink to='/'>Return to home.</NavLink>
-                         <NavLink to="/register"> Register </NavLink>
+                         <NavLink className="landingNavLink" to='/'>Return to home.</NavLink>
+                       
+                         <NavLink  className="landingNavLink"to="/register"> Register </NavLink>
                     </form>
                </div>
               
