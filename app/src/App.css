@@ -126,11 +126,11 @@ body{
 
 .largeNavItem{
   width: 30%;
-  color: #c04346 ;
+  color: black;
 }
 
 .largeNavItem h2{
-  font-size: 27px;
+  font-size:3rem;
   font-weight: bold;
 }
 
@@ -145,12 +145,12 @@ body{
 }
 
 .NavItem button{
-  padding: 8px 25px;
+  padding: 13px 35px;
   background: #7795f8;
   border: 1px solid #7795f8;
   font-weight: bold;
-  font: 19px;
-  border-radius: 8px;
+  font-size:14px;
+  border-radius: 15px;
   color: #ecedf2;
 }
 
@@ -165,9 +165,11 @@ body{
 /* events dashboard */
 
 .pageTitle{
-  width: 80%;
+  max-width:900px;
+  width:100%;
+  text-align:center;
   margin: 5% auto;
-  font-size: 19px;
+  font-size: 2rem;
 }
 
 .eventDiv{
@@ -182,12 +184,12 @@ body{
   background: #e1e2e6;
   padding: 10px 40px;
   border-radius: 18px;
-  color: #ef595d;
+  color: #343740;
 }
 
 .eventRow:hover{
   /* background: #ff5e63; */
-  background: #ef595d;
+  background: #68bfac;
   color: #ecedf2;
   box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
 }
@@ -197,7 +199,7 @@ body{
   margin: 2% auto;
   display: flex;
   justify-content: space-evenly;
-   background: #ef595d;
+  background: #343740;
   padding: 10px 40px;
   border-radius: 18px;
   color: #ecedf2;
@@ -206,6 +208,8 @@ body{
 .eventCol{
   text-align: center;
   width: 25%;
+  font-size:1.3rem;
+  font-weight:600;
 }
 
 .eventA a{
@@ -216,17 +220,22 @@ body{
 /* single event */
 
 .singleEvent{
-  width: 80%;
-  margin: 2% auto;
+  max-width:900px;
+  width: 100%;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content:space-between;
 }
 .eventCard{
   background: #e1e2e6;
   padding: 1px 20px;
   border: 1px #e1e2e6 solid;
   border-radius: 10px;
-  color: black;
+  color: #343740;
+  width:100%;
+  text-align:center;
+  font-size:16px;
 }
 
 .spanMan{
@@ -236,12 +245,13 @@ body{
 
 .eventBtnDiv{
   margin: 1% auto;
-  
+  display:flex;
+  justify-content:center;
 }
 
 .editBtn{
   margin-right: 10px;
-  padding: 4px 14px;
+  padding: 7px 24px;
   border-radius: 8px;
   background-color: #3ecf8e;
   border: 1px solid #3ecf8e;
@@ -258,8 +268,8 @@ body{
   margin-left: 10px;
   background: #ef595d;
   border: 1px #ef595d solid;
-  padding: 4px 14px;
-  border-radius: 8px;
+  padding: 7px 24px;
+  border-radius: 9px;
   color: #e1e2e6;
 }
 
@@ -271,18 +281,17 @@ body{
 }
 
 .eventSub{
-  width: 300px;
+  width: 27%;
   height: 250px;
   background: #e1e2e6;
-  margin: 1% 1%;
+  margin-top:30px;
   padding: 1px 20px;
   border-radius: 18px;
   text-align:center;
 }
 
 .addBtn{
-  margin-right: 10px;
-  padding: 4px 14px;
+  padding: 5px 14px;
   border-radius: 8px;
   background-color: #3ecf8e;
   border: 1px solid #3ecf8e;
@@ -301,3 +310,23 @@ body{
   padding: 4px 4px;
   margin-right: 4px;
 }
+
+.task-button{
+  border:1px solid #40d693;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  margin-right:10px;
+  color:#40d693;
+  background-color:#40d693;
+}
+.task-button:hover{
+  border:1px solid #ef595d;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  margin-right:10px;
+  color:#ef595d;
+  background-color:#ef595d;
+}
+

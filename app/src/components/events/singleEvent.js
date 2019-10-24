@@ -27,14 +27,14 @@ const SingleEvent = (props) => {
                 props.singleEventData.map(item => {
                     return(
                         <>
-                        <h4 key={item.id} className="pageTitle">Welcome to the <span id="landingSpan">{item.event_name} </span>event page:</h4>
+                        <h4 key={item.id} className="pageTitle">Welcome to the <span id="landingSpan">{item.event_name} </span>event page</h4>
 
                         <div className="eventCard" key={item.id}> 
                             <h4><span className="spanMan">Name: </span>{item.event_name}</h4>
                             <h4><span className="spanMan">Description: </span>{item.description}</h4>
                             <h4><span className="spanMan">Date: </span>{item.event_date}</h4>
-                            <h4><span className="spanMan">Hour: </span>{item.event_time}</h4>
-                            <h4><span className="spanMan">Buget: </span>{item.budget}</h4>
+                            <h4><span className="spanMan">Time: </span>{item.event_time}</h4>
+                            <h4><span className="spanMan">Budget: </span>${item.budget}</h4>
                             <div className="eventBtnDiv">
                                 <button className="editBtn" onClick={() => props.history.push(`/edit-event/${id}`)}>Edit</button>
                                 <button className="deleteBtn" onClick={() => props.deleteEvent(id, props.history)}>Delete</button>

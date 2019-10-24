@@ -15,16 +15,16 @@ function CardList(props){
           <div className='eventDiv'> 
                <div className="eventRowFake">
                     <div className="eventCol">
-                         <h4>Event Name:</h4>
+                         <h4>Event Name</h4>
                     </div>
                     <div className="eventCol">
-                         <h4>Event Desription:</h4>
+                         <h4>Event Desription</h4>
                     </div>
                     <div className="eventCol">
-                         <h4>Event Budget:</h4>
+                         <h4>Event Budget</h4>
                     </div>
                     <div className="eventCol">
-                         <h4>Date of Event:</h4>
+                         <h4>Date of Event</h4>
                     </div>
                 </div>
                {
