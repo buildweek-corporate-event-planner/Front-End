@@ -152,6 +152,7 @@ body{
   font-weight: bold;
   font-size:14px;
   border-radius: 15px;
+  width:100%;
   color: #ecedf2;
 }
 
@@ -330,4 +331,9 @@ body{
   color:#ef595d;
   background-color:#ef595d;
 }
+.todo_bullets{
+  margin-left:25px;
+  text-align:left;
+}
+
 

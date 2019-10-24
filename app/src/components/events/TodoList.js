@@ -55,13 +55,13 @@ function TodoList(props){
                          placeholder="Add task"
                          className="eventInput"
                     />
-                    <button className="addBtn" onClick={() => props.addTodo(todoItem)}>Add task</button>
+                    <button className="addBtn" onClick={() => props.addTodo(todoItem)}>Add</button>
                </form>
                {    
                     props.todoList.map(item => {
                          return(
                               <div key={item.id}>
-                                   <p><span className="task-button" onClick={() => props.toggleTodo(item.id)}> O </span> {item.list_name}</p>
+                                   <p className="todo_bullets"><span className="task-button" onClick={() => props.toggleTodo(item.id)}> O </span> {item.list_name}</p>
                               </div>
                          )
                     })
