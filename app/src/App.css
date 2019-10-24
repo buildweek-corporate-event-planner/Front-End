@@ -42,8 +42,9 @@ body{
 }
 
 #landingTitle{
-  font-size: 1.8rem;
-  color: #e3ae3d;
+  font-size: 3rem;
+  font-weight:bold;
+  color: #6B7c93;
 }
 
 #landingSpan{
@@ -126,7 +127,7 @@ body{
 
 .largeNavItem{
   width: 30%;
-  color: black;
+  color: #343740;
 }
 
 .largeNavItem h2{

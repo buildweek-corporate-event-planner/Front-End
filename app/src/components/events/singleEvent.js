@@ -27,7 +27,7 @@ const SingleEvent = (props) => {
                 props.singleEventData.map(item => {
                     return(
                         <>
-                        <h4 key={item.id} className="pageTitle">Welcome to the <span id="landingSpan">{item.event_name} </span>event page</h4>
+                        <h4 key={item.event_name} className="pageTitle">Welcome to the <span id="landingSpan">{item.event_name} </span>event page</h4>
 
                         <div className="eventCard" key={item.id}> 
                             <h4><span className="spanMan">Name: </span>{item.event_name}</h4>
