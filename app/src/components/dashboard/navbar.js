@@ -8,7 +8,7 @@ const Navbar = () => {
     return (
         <div className="navbar">
             <div className="largeNavItem">
-            <h2>Ivory</h2>
+            <h2 className="title-icon">Ivory</h2>
             </div>
             <div className="smallNavItem">
                 <div className="NavItem">

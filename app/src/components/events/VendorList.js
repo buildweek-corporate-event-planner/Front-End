@@ -60,7 +60,7 @@ function VendorList(props) {
                     props.vendorList.map(item => {
                          return (
                               <div key={item.id}>
-                                   <p><span onClick={() => props.toggleVendor(item.id)}>X </span> {item.vendor_name}</p>
+                                   <p><span className="task-button" onClick={() => props.toggleVendor(item.id)}> O </span> {item.vendor_name}</p>
                               </div>
                          )
                     })

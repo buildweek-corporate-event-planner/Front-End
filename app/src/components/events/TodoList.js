@@ -45,7 +45,7 @@ function TodoList(props){
      }
      return(
           <div className="eventSub">
-               <h3>Tasks to Complete</h3>
+               <h3>Tasks</h3>
                <form onSubmit={submitTodo}>
                     <input
                          text="text"
@@ -61,7 +61,7 @@ function TodoList(props){
                     props.todoList.map(item => {
                          return(
                               <div key={item.id}>
-                                   <p><span onClick={() => props.toggleTodo(item.id)}>X </span> {item.list_name}</p>
+                                   <p><span className="task-button" onClick={() => props.toggleTodo(item.id)}> O </span> {item.list_name}</p>
                               </div>
                          )
                     })

@@ -62,7 +62,7 @@ function ShopList (props) {
                     props.shopList.map(item => {
                          return (
                               <div key={item.id} >
-                                   <p><span onClick={() => props.toggleItem(item.id, 'shopping')}>X </span> {item.list_name}</p>
+                                   <p><span className="task-button" onClick={() => props.toggleItem(item.id, 'shopping')}> O </span> {item.list_name}</p>
                               </div>
                          )
                     })

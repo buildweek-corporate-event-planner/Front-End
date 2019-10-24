@@ -11,7 +11,7 @@ const Dashboard = () => {
         <>
         <Navbar />
         <div>
-        <h4 className="pageTitle">Welcome to the Dashboard:</h4>
+        {/* <h4 className="pageTitle">Welcome to the Dashboard:</h4> */}
         <CardList />
         </div>
         </>
