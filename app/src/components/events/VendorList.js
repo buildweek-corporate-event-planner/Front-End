@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { fetchVendor, addVendor, toggleVendor } from '../../actions/'
 import { connect } from 'react-redux'
 
+import { makeStyles } from '@material-ui/core/styles';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 function VendorList(props) {
@@ -21,21 +23,27 @@ function VendorList(props) {
                "assigned_to_event": `${props.id}`
           })
      }
-    
+     const useStyles = makeStyles(theme => ({
+          progress: {
+            margin: theme.spacing(2),
+          },
+        }));
+        const classes = useStyles();
+
      useEffect(() => {
           props.fetchVendor(props.id)
           resetForm()
      }, [props.isCreatingVendor])
 
      if (props.isFetching) {
-          return <p>Loading Vendors...</p>
+          return <CircularProgress className={classes.progress} />
      }
      const submitVendor = event => {
           event.preventDefault()
      }
 
      return (
-          <div>
+          <div className="eventSub">
                <h3>Vendors</h3>
                <form onSubmit={submitVendor}>
                     <input
@@ -44,8 +52,9 @@ function VendorList(props) {
                          value={vendorItem.vendor_name}
                          onChange={handleChanges}
                          placeholder="Add vendor"
+                         className="eventInput"
                     />
-                    <button onClick={() => props.addVendor(vendorItem)}>Add vendor</button>
+                    <button className="addBtn" onClick={() => props.addVendor(vendorItem)}>Add vendor</button>
                </form>
                {
                     props.vendorList.map(item => {

@@ -5,12 +5,20 @@ import React from 'react'
 function Card(props){
 
      return(
-          <div>
-               <div>
-                    <h3>{props.eventList.event_name}</h3>
+          
+          <div className="eventRow">
+                    <div className="eventCol">
+                         <h4>{props.eventList.event_name}</h4>
+                    </div>
+                    <div className="eventCol">
                     <h4>{props.eventList.description}</h4>
-                    <h5>{props.eventList.event_date}</h5>
-               </div >
+                    </div>
+                    <div className="eventCol">
+                    <h4>{props.eventList.budget}</h4>
+                    </div>
+                    <div className="eventCol">
+                    <h4>{props.eventList.event_date}</h4>
+                    </div>
           </div>
      )
 }

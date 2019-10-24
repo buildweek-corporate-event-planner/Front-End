@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import { fetchTodo, addTodo, toggleTodo } from '../../actions/'
 import { connect } from 'react-redux'
 
+import { makeStyles } from '@material-ui/core/styles';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 function TodoList(props){
@@ -9,6 +11,13 @@ function TodoList(props){
           "list_name": '',
           "assigned_to_event": `${props.id}`
      })
+
+     const useStyles = makeStyles(theme => ({
+          progress: {
+            margin: theme.spacing(2),
+          },
+        }));
+        const classes = useStyles();
      const handleChanges = event => {
           setTodoItem({
                ...todoItem,
@@ -32,10 +41,10 @@ function TodoList(props){
      },[props.isCreatingTodo])
 
      if(props.isFetching){
-          return <p>Loading Tasks...</p>
+          return <CircularProgress className={classes.progress} />
      }
      return(
-          <div>
+          <div className="eventSub">
                <h3>Tasks to Complete</h3>
                <form onSubmit={submitTodo}>
                     <input
@@ -44,8 +53,9 @@ function TodoList(props){
                          value={todoItem.list_name}
                          onChange={handleChanges}
                          placeholder="Add task"
+                         className="eventInput"
                     />
-                    <button onClick={() => props.addTodo(todoItem)}>Add task</button>
+                    <button className="addBtn" onClick={() => props.addTodo(todoItem)}>Add task</button>
                </form>
                {    
                     props.todoList.map(item => {

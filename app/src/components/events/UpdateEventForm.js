@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { editEvent } from '../../actions/'
 import { withRouter } from 'react-router-dom'
 
+import Navbar from '../dashboard/navbar'
 
 
 function UpdateEventForm(props){
@@ -20,7 +21,10 @@ function UpdateEventForm(props){
      }
 
      return(
+          <>
+           <Navbar />
           <div>
+               
                <form onSubmit={submitUpdates}>
                     <input 
                          type="text"
@@ -60,6 +64,7 @@ function UpdateEventForm(props){
                     <button onClick={() => props.editEvent(updateEvent, props.match.params.id, props.history) }>Update event</button>
                </form>
           </div>
+          </>
      )
 }
 

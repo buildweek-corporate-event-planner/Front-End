@@ -1,9 +1,28 @@
+/* `YELLOW
+#f3bb01 - gold yellow 
+
+RED
+#c04346 - dark red
+#ef595d - light red 
+
+BLACK
+#8d8fa4 - light grey
+#343740 - black (should be all text) 
+
+
+BACKGROUND
+#ffffff - white
+#ecedf2 - off white
+`` */
+
+
 body{
   font-family: 'Roboto', sans-serif;
-  background-color: #f6f9fc;
+  background-color: #ecedf2;
   text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: #343740;
 }
 
 
@@ -45,6 +64,7 @@ body{
 
 .bBtn{
   color: #f6f9fc;
+  font-weight: 550;
   background-color: #3ecf8e;
   border: 1px solid #3ecf8e;
   padding: 12px 36px;
@@ -62,6 +82,7 @@ body{
 
 .aBtn{
   color: #f6f9fc;
+  font-weight: 550;
   background-color: #7795f8;
   border: 1px solid #7795f8;
   padding: 12px 36px;
@@ -93,7 +114,188 @@ body{
   flex-direction: column;
 }
 
-.landingFormInner inputs{
-  width: 100%;
+/* navbar */
+
+.navbar{
+  width: 65%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5% auto;
 }
 
+.largeNavItem{
+  width: 30%;
+  color: #c04346 ;
+}
+
+.largeNavItem h2{
+  font-size: 27px;
+  font-weight: bold;
+}
+
+.smallNavItem{
+  width: 65%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.NavItem{
+  margin: 0px 10px;
+}
+
+.NavItem button{
+  padding: 8px 25px;
+  background: #8d8fa4;
+  border: 1px solid #8d8fa4;
+  font-weight: bold;
+  font: 19px;
+  border-radius: 8px;
+  color: #ecedf2;
+}
+
+.NavItem button:hover{
+  color: #c04346;
+  background: #a1a2b3;
+  border: solid 1px #a1a2b3;
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+
+}
+
+/* events dashboard */
+
+.pageTitle{
+  width: 80%;
+  margin: 5% auto;
+  font-size: 19px;
+}
+
+.eventDiv{
+  width: 80%;
+  margin: 3% auto;
+}
+
+.eventRow{
+  margin: 2% auto;
+  display: flex;
+  justify-content: space-evenly;
+  background: #e1e2e6;
+  padding: 10px 40px;
+  border-radius: 18px;
+  color: #ef595d;
+}
+
+.eventRow:hover{
+  /* background: #ff5e63; */
+  background: #ef595d;
+  color: #ecedf2;
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+
+.eventRowFake{
+  margin: 2% auto;
+  display: flex;
+  justify-content: space-evenly;
+   background: #ef595d;
+  padding: 10px 40px;
+  border-radius: 18px;
+  color: #ecedf2;
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+.eventCol{
+  text-align: center;
+  width: 25%;
+}
+
+.eventA a{
+    color: #343740;
+    text-decoration: none;
+    
+  }
+/* single event */
+
+.singleEvent{
+  width: 80%;
+  margin: 2% auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.eventCard{
+  background: #e1e2e6;
+  padding: 1px 20px;
+  border: 1px #e1e2e6 solid;
+  border-radius: 10px;
+  color: #ef595d;
+}
+
+.spanMan{
+  color: #343740;
+}
+
+.eventBtnDiv{
+  margin: 1% auto;
+  
+}
+
+.editBtn{
+  margin-right: 10px;
+  padding: 4px 14px;
+  border-radius: 8px;
+  background-color: #3ecf8e;
+  border: 1px solid #3ecf8e;
+  color: #ecedf2;
+}
+
+.editBtn:hover{
+  background-color: #40d693;
+  border: 1px solid #40d693;
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+
+}
+.deleteBtn{
+  margin-left: 10px;
+  background: #c04346;
+  border: 1px #c04346 solid;
+  padding: 4px 14px;
+  border-radius: 8px;
+  color: #e1e2e6;
+}
+
+.deleteBtn:hover{
+  border: 1px solid #ef595d;
+  background: #ef595d;
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+
+}
+
+.eventSub{
+  width: 300px;
+  height: 250px;
+  background: #e1e2e6;
+  margin: 1% 1%;
+  padding: 1px 20px;
+  border-radius: 18px;
+}
+
+.addBtn{
+  margin-right: 10px;
+  padding: 4px 14px;
+  border-radius: 8px;
+  background-color: #3ecf8e;
+  border: 1px solid #3ecf8e;
+  color: #ecedf2;;
+}
+
+.addBtn:hover{
+  background-color: #40d693;
+  border: 1px solid #40d693;
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.eventInput{
+  border: 1px #e1e2e6 solid;
+  border-radius: 8px;
+  padding: 4px 4px;
+  margin-right: 4px;
+}
