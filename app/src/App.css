@@ -146,8 +146,8 @@ body{
 
 .NavItem button{
   padding: 8px 25px;
-  background: #8d8fa4;
-  border: 1px solid #8d8fa4;
+  background: #7795f8;
+  border: 1px solid #7795f8;
   font-weight: bold;
   font: 19px;
   border-radius: 8px;
@@ -155,9 +155,9 @@ body{
 }
 
 .NavItem button:hover{
-  color: #c04346;
-  background: #a1a2b3;
-  border: solid 1px #a1a2b3;
+  color: white;
+  background: #91a9f7;
+  border: solid 1px #91a9f7;
   box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
 
 }
@@ -226,11 +226,12 @@ body{
   padding: 1px 20px;
   border: 1px #e1e2e6 solid;
   border-radius: 10px;
-  color: #ef595d;
+  color: black;
 }
 
 .spanMan{
   color: #343740;
+  color:#7795f8;
 }
 
 .eventBtnDiv{
@@ -255,8 +256,8 @@ body{
 }
 .deleteBtn{
   margin-left: 10px;
-  background: #c04346;
-  border: 1px #c04346 solid;
+  background: #ef595d;
+  border: 1px #ef595d solid;
   padding: 4px 14px;
   border-radius: 8px;
   color: #e1e2e6;
@@ -276,6 +277,7 @@ body{
   margin: 1% 1%;
   padding: 1px 20px;
   border-radius: 18px;
+  text-align:center;
 }
 
 .addBtn{
