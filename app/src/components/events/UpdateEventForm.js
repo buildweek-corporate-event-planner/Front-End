@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom'
 
 import Navbar from '../dashboard/navbar'
 
-const initialState = [{
+const initialState = {
      event_name: "",
      description: "",
      budget: "",
@@ -13,14 +13,18 @@ const initialState = [{
      event_time: "",
      id: "",
      assigned_to_user: ""
-}]
+}
 
 function UpdateEventForm(props){
-     
-     const [updateEvent, setUpdateEvent] = useState(...props.singleEventData)
-     // useEffect(() => {
-     //      if(props.singleEventData) setUpdateEvent(...props.singleEventData)
-     // })
+
+     console.log(props.singleEventData)
+     const [updateEvent, setUpdateEvent] = useState(initialState)
+
+     useEffect(() => {
+          if (props.singleEventData.length > 0) { setUpdateEvent(...props.singleEventData) }
+     },[])
+    
+  
      const handleChanges = event => {
           setUpdateEvent({
                ...updateEvent,
@@ -40,7 +44,7 @@ function UpdateEventForm(props){
                     <input 
                          type="text"
                          name="event_name"
-                         value={updateEvent.event_name || ''}
+                         value={updateEvent.event_name}
                          onChange={handleChanges}
                          placeholder="name"
                     />
