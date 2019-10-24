@@ -43,7 +43,7 @@ const Register = (props) => {
                          onChange={handleChanges}
                          />
                          </label>
-
+                         <br />
                         <label>Password
                         <input
                             name="password"
@@ -53,7 +53,7 @@ const Register = (props) => {
                             onChange={handleChanges}
                          />
                          </label>
-
+                              <br />
                         <label>Role
                          <input
                          name="role"
@@ -64,7 +64,7 @@ const Register = (props) => {
                          />
                          </label>
 
-                         
+                              <br />
                         <label>Company
                          <input
                          name="company"
@@ -74,8 +74,9 @@ const Register = (props) => {
                          onChange={handleChanges}
                          />
                          </label>
-                         
-                         <button type="submit" onClick={() => props.register(registerUser, props.history)}>Signup</button>
+                              <br />
+                         <button className="home-button" type="submit" onClick={() => props.register(registerUser, props.history)}>Signup</button>
+                              <br />
                          <NavLink to='/'>Return to home.</NavLink>
                     </form>
                </div>
