@@ -65,6 +65,7 @@ const Login = (props) => {
 
                          <button type="submit" onClick={() => props.login(loginInfo, props.history)}>Login</button>
                          <NavLink to='/'>Return to home.</NavLink>
+                         <NavLink to="/register"> Register </NavLink>
                     </form>
                </div>
               
