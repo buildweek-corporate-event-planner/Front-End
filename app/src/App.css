@@ -42,8 +42,9 @@ body{
 }
 
 #landingTitle{
-  font-size: 1.8rem;
-  color: #e3ae3d;
+  font-size: 3rem;
+  font-weight:bold;
+  color: #6B7c93;
 }
 
 #landingSpan{
@@ -126,7 +127,7 @@ body{
 
 .largeNavItem{
   width: 30%;
-  color: black;
+  color: #343740;
 }
 
 .largeNavItem h2{
@@ -151,6 +152,7 @@ body{
   font-weight: bold;
   font-size:14px;
   border-radius: 15px;
+  width:100%;
   color: #ecedf2;
 }
 
@@ -329,4 +331,37 @@ body{
   color:#ef595d;
   background-color:#ef595d;
 }
+.todo_bullets{
+  margin-left:25px;
+  text-align:left;
+}
 
+form{
+  text-align:center;
+  max-width:500px;
+  width:100%;
+}
+
+.oboardingForm{
+  text-align:center;
+  margin:0 auto;
+  margin-top:10px;
+}
+.oboardingForm input{
+  margin-top:15px;
+}
+
+.home-button{
+  margin:15px 0;
+  background-color: #3ecf8e;
+  border: 1px solid #3ecf8e;
+  padding: 5px 26px;
+  border-radius: 10px;
+  color:white;
+  font-weight:bold;
+  width:100px;
+  text-align:center;
+}
+#login-button{
+  margin:15px auto;
+}

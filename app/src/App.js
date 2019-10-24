@@ -32,7 +32,7 @@ function App(props) {
         {/* onboarding routes */}
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
-        <PrivateRoute exact path="/" component={Navigation} />
+        <Route exact path="/" component={Navigation} />
 
         {/* Dashboarding Routes */}
         <PrivateRoute path="/dashboard" component={Dashboard} />

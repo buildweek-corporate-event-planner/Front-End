@@ -56,13 +56,13 @@ function ShopList (props) {
                          placeholder="Add item"
                          className="eventInput"
                     />
-                    <button className="addBtn" onClick={() => props.addShop(shopItem)}>Add item</button>
+                    <button className="addBtn" onClick={() => props.addShop(shopItem)}>Add</button>
                </form>
                {
                     props.shopList.map(item => {
                          return (
                               <div key={item.id} >
-                                   <p><span className="task-button" onClick={() => props.toggleItem(item.id, 'shopping')}> O </span> {item.list_name}</p>
+                                   <p className="todo_bullets"><span className="task-button" onClick={() => props.toggleItem(item.id, 'shopping')}> O </span> {item.list_name}</p>
                               </div>
                          )
                     })

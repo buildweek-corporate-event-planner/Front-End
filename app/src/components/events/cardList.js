@@ -18,7 +18,7 @@ function CardList(props){
                          <h4>Event Name</h4>
                     </div>
                     <div className="eventCol">
-                         <h4>Event Desription</h4>
+                         <h4>Event Description</h4>
                     </div>
                     <div className="eventCol">
                          <h4>Event Budget</h4>

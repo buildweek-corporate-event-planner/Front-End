@@ -54,13 +54,13 @@ function VendorList(props) {
                          placeholder="Add vendor"
                          className="eventInput"
                     />
-                    <button className="addBtn" onClick={() => props.addVendor(vendorItem)}>Add vendor</button>
+                    <button className="addBtn" onClick={() => props.addVendor(vendorItem)}>Add</button>
                </form>
                {
                     props.vendorList.map(item => {
                          return (
                               <div key={item.id}>
-                                   <p><span className="task-button" onClick={() => props.toggleVendor(item.id)}> O </span> {item.vendor_name}</p>
+                                   <p className="todo_bullets"><span className="task-button" onClick={() => props.toggleVendor(item.id)}> O </span> {item.vendor_name}</p>
                               </div>
                          )
                     })
