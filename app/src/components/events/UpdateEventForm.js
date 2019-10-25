@@ -38,46 +38,76 @@ function UpdateEventForm(props){
      return(
           <>
            <Navbar />
-          <div>
-               
-               <form onSubmit={submitUpdates}>
+           <div className="landingBox">
+                    <div className="landingText">
+
+                         <h4 id="landingText">Edit <span id="landingSpan">{item.event_name}</span></h4>
+                    </div>
+               <div className="oboardingFormOuter">
+               <form onSubmit={submitUpdates} className="landingFormInner">
+                    <label className="onboardingLabel">Event Name
+                              <br />
                     <input 
                          type="text"
                          name="event_name"
                          value={updateEvent.event_name}
                          onChange={handleChanges}
                          placeholder="name"
+                         className="onboardingInput"
                     />
+                     </label>
+                         <br />
+                    <label className="onboardingLabel">Description
+                              <br />
                     <input 
                          type="text"
                          name="description"
                          value={updateEvent.description || ''}
                          onChange={handleChanges}
                          placeholder="description"
+                         className="onboardingInput"
                     />
+                     </label>
+                         <br />
+                     <label className="onboardingLabel">Date
+                              <br />
                     <input 
                          type="text"
                          name="event_date"
                          value={updateEvent.event_date || ''}
                          onChange={handleChanges}
                          placeholder="date"
+                         className="onboardingInput"
                     />
+                     </label>
+                         <br />
+                     <label className="onboardingLabel">Time
+                              <br />
                     <input 
                          type="text"
                          name="event_time"
                          value={updateEvent.event_time || ''}
                          onChange={handleChanges}
                          placeholder="time"
+                         className="onboardingInput"
                     />
+                     </label>
+                         <br />
+                     <label className="onboardingLabel">Budget
+                              <br />
                     <input 
                          type="text"
                          name="budget"
                          value={updateEvent.budget || ''}
                          onChange={handleChanges}
                          placeholder="budget"
+                         className="onboardingInput"
                     />
+                     </label>
+                         <br />
                     <button onClick={() => props.editEvent(updateEvent, props.match.params.id, props.history) }>Update event</button>
                </form>
+          </div>
           </div>
           </>
      )
